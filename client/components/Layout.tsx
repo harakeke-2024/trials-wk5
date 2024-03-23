@@ -1,5 +1,4 @@
 import { Outlet } from 'react-router-dom'
-import { Films } from './Films'
 import Nav from './Nav'
 
 export default function Layout() {
