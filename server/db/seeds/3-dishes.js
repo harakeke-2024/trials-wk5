@@ -30,5 +30,13 @@ export async function seed(knex) {
       original_name: 'お弁当',
       description: 'お弁当',
     },
+    {
+      id: 5,
+      film_id: 3,
+      name: 'Chocolate Cake',
+      image_url: 'https://www.ghibli.jp/gallery/majo043.jpg',
+      original_name: 'チョコレートケーキ',
+      description: 'チョコレートケーキ',
+    },
   ])
 }

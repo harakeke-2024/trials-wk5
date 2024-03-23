@@ -36,5 +36,25 @@ export async function seed(knex) {
       description:
         'Two sisters relocate to rural Japan with their father to spend time with their ill mother. They face a mythical forest sprite and its woodland friends with whom they have many magical adventures.',
     },
+    {
+      id: 4,
+      title: 'Spirited Away',
+      release_year: '2001',
+      banner_url: 'https://www.ghibli.jp/images/chihiro.jpg',
+      director: 'Hayao Miyazaki',
+      original_title: '千と千尋の神隠し',
+      description:
+        'Ten-year-old Chihiro and her parents end up at an abandoned amusement park inhabited by supernatural beings. Soon, she learns that she must work to free her parents who have been turned into pigs.',
+    },
+    {
+      id: 5,
+      title: "Kiki's Delivery Service",
+      release_year: '1989',
+      banner_url: 'https://www.ghibli.jp/images/majo.jpg',
+      director: 'Hayao Miyazaki',
+      original_title: '魔女の宅急便',
+      description:
+        'Thirteen-year-old Kiki tries to become an independent witch and gets a job at a delivery service. She wakes up one day to find that she can neither fly her broom nor talk to her cat.',
+    },
   ])
 }

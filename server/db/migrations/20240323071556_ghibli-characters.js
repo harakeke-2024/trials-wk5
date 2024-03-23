@@ -8,7 +8,7 @@ export function up(knex) {
     table.integer('film_id').references('films.id').onDelete('CASCADE')
     table.string('name')
     table.string('image_url')
-    table.string('original_name')
+    // table.string('original_name')
   })
 }
 
