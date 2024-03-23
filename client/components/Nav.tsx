@@ -8,6 +8,8 @@ export default function Nav() {
         <Link to={'films'}>Films</Link>
         <br />
         <Link to={'dishes'}>Dishes</Link>
+        <br />
+        <Link to={'characters'}>Characters</Link>
       </main>
       <footer></footer>
     </>

@@ -4,28 +4,28 @@ import {
   // useQueryClient,
   // MutationFunction,
 } from '@tanstack/react-query'
-import { getDishes } from '../apis/filmsApi.ts'
+import { getChars } from '../apis/filmsApi.ts'
 
-export default function Dishes() {
+export default function Characters() {
   const {
-    data: dishes,
+    data: characters,
     isLoading,
     isError,
     error,
-  } = useQuery({ queryKey: ['dishes'], queryFn: getDishes })
+  } = useQuery({ queryKey: ['films'], queryFn: getChars })
 
   if (isLoading) return <h1>Loading...</h1>
 
   if (isError) return <h1>Error; {error.message}</h1>
 
-  if (dishes) {
+  if (characters) {
     return (
       <>
         <ul>
-          {dishes.map((dish, index) => (
+          {characters.map((char, index) => (
             <li key={index}>
-              <h2>{dish.name}</h2>
-              <img src={dish.image_url} alt={`${dish.name} dish`} />
+              <h2>{char.name}</h2>
+              <img src={char.image_url} alt={`${char.name}`} />
             </li>
           ))}
         </ul>

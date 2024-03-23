@@ -16,3 +16,10 @@ export interface Dish {
   original_name: string
   description: string
 }
+
+export interface Character {
+  id: number
+  film_id: number
+  name: string
+  image_url: string
+}
