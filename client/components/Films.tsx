@@ -21,9 +21,17 @@ export function Films() {
   if (films) {
     return (
       <>
-        {films.map((film, index) => (
-          <li key={index}>{film.title}</li>
-        ))}
+        <ul>
+          {films.map((film, index) => (
+            <li key={index}>
+              <h2>{film.title}</h2>
+              <img
+                src={film.banner_url}
+                alt={`film banner for ${film.title}`}
+              />
+            </li>
+          ))}
+        </ul>
       </>
     )
   }
