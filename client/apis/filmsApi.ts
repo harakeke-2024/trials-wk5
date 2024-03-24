@@ -64,3 +64,14 @@ export async function charsWithFilms() /*: Promise<Character[] | undefined> */ {
     console.error(e)
   }
 }
+
+export async function deleteCharacter(
+  id: number,
+) /*: Promise<Character[] | undefined> */ {
+  try {
+    const res = await request.get(rootUrl + '/characters/with-films')
+    return res.body
+  } catch (e) {
+    console.error(e)
+  }
+}

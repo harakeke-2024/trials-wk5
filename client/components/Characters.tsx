@@ -1,11 +1,7 @@
-import {
-  useQuery,
-  // useMutation,
-  // useQueryClient,
-  // MutationFunction,
-} from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { charsWithFilms /*, getChars*/ } from '../apis/filmsApi.ts'
 import { Link } from 'react-router-dom'
+import DeleteChar from './DeleteChar.tsx'
 
 export default function Characters() {
   const {
@@ -32,6 +28,7 @@ export default function Characters() {
               <Link to={`${char.id}/edit`}>
                 <p>edit character</p>
               </Link>
+              <DeleteChar id={char.id} />
             </li>
           ))}
         </ul>
