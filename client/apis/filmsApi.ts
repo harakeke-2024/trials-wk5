@@ -69,7 +69,7 @@ export async function deleteCharacter(
   id: number,
 ) /*: Promise<Character[] | undefined> */ {
   try {
-    const res = await request.get(rootUrl + '/characters/with-films')
+    const res = await request.delete(rootUrl + `/characters/delete/${id}`)
     return res.body
   } catch (e) {
     console.error(e)

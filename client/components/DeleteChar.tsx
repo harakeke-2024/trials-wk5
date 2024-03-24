@@ -1,35 +1,26 @@
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  MutationFunction,
-} from '@tanstack/react-query'
-import { getDishes } from '../apis/filmsApi.ts'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { deleteCharacter, getDishes } from '../apis/filmsApi.ts'
 
 export default function DeleteChar({ id }) {
   // here we will make a delete button and handle that functionality here.
-  const {
-    data: dishes,
-    isLoading,
-    isError,
-    error,
-  } = useQuery({ queryKey: ['dishes'], queryFn: getDishes })
+  const queryClient = useQueryClient()
 
-  if (isLoading) return <h1>Loading...</h1>
+  const mutation = useMutation({
+    mutationFn: () => deleteCharacter(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['characters'] })
+    },
+  })
 
-  if (isError) return <h1>Error; {error.message}</h1>
+  function handleDelete() {
+    mutation.mutate()
+  }
 
-  if (dishes) {
+  if (id) {
     return (
       <>
-        <ul>
-          {dishes.map((dish, index) => (
-            <li key={index}>
-              <h2>{dish.name}</h2>
-              <img src={dish.image_url} alt={`${dish.name} dish`} />
-            </li>
-          ))}
-        </ul>
+        <h2>Delete character with ID: {id}</h2>
+        <button onClick={handleDelete}>Delete Character</button>
       </>
     )
   }

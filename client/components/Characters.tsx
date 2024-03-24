@@ -9,7 +9,7 @@ export default function Characters() {
     isLoading,
     isError,
     error,
-  } = useQuery({ queryKey: ['films'], queryFn: charsWithFilms })
+  } = useQuery({ queryKey: ['characters'], queryFn: charsWithFilms })
 
   if (isLoading) return <h1>Loading...</h1>
 
