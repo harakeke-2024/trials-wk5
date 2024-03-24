@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { Film, Dish, Character } from '../../models/ghibli'
+import { Film, Dish, Character, CharacterData } from '../../models/ghibli'
 
 const rootUrl = '/api/v1/ghibli'
 
@@ -29,3 +29,14 @@ export async function getChars(): Promise<Character[] | undefined> {
     console.error(e)
   }
 }
+
+export async function addNewChar(data: CharacterData) {
+  try {
+    const res = await request.post(rootUrl + '/new-character').send(data)
+    return res.body
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+// '/update-char/:id'

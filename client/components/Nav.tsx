@@ -10,6 +10,8 @@ export default function Nav() {
         <Link to={'dishes'}>Dishes</Link>
         <br />
         <Link to={'characters'}>Characters</Link>
+        <br />
+        <Link to={'add-character'}>Add Your Favourite Character</Link>
       </main>
       <footer></footer>
     </>
