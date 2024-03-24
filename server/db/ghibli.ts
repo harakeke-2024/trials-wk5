@@ -30,3 +30,16 @@ export async function updateChar(id: number, updatedChar: CharacterData) {
 export async function deleteChar(id: number) {
   return await db('characters').where('id', id).del()
 }
+
+export async function getCharsWithFilms(): Promise<Character[]> {
+  return await db('characters')
+    .join('films', 'films.id', 'film_id')
+    .select(
+      'characters.id as id',
+      'characters.name as name',
+      'films.title as film',
+      'films.original_title as originalTitle',
+      'films.id as filmId',
+      'films.release_year as year',
+    )
+}

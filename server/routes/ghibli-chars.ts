@@ -17,6 +17,17 @@ router.get('/', async (req, res) => {
   }
 })
 
+router.get('/with-films', async (req, res) => {
+  try {
+    const dishes = await db.getCharsWithFilms()
+
+    res.json(dishes)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
 router.post('/new-character', async (req, res) => {
   try {
     // const { name, film_id, image_url } = req.body
