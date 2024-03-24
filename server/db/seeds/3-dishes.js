@@ -25,7 +25,7 @@ export async function seed(knex) {
     {
       id: 3,
       film_id: 3,
-      name: 'Bentou Box',
+      name: 'Bento Box',
       image_url: 'https://www.ghibli.jp/gallery/totoro015.jpg',
       original_name: 'お弁当',
       description: 'お弁当',
