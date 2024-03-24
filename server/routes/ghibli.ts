@@ -26,4 +26,15 @@ router.get('/dishes', async (req, res) => {
   }
 })
 
+router.get('/characters', async (req, res) => {
+  try {
+    const dishes = await db.getAllChars()
+
+    res.json(dishes)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
 export default router
