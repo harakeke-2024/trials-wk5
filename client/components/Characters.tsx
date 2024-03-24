@@ -5,6 +5,7 @@ import {
   // MutationFunction,
 } from '@tanstack/react-query'
 import { getChars } from '../apis/filmsApi.ts'
+import { Link } from 'react-router-dom'
 
 export default function Characters() {
   const {
@@ -26,6 +27,9 @@ export default function Characters() {
             <li key={index}>
               <h2>{char.name}</h2>
               <img src={char.image_url} alt={`${char.name}`} />
+              <Link to={`${char.id}/edit`}>
+                <p>edit character</p>
+              </Link>
             </li>
           ))}
         </ul>

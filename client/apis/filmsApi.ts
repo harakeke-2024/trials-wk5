@@ -40,3 +40,12 @@ export async function addNewChar(data: CharacterData) {
 }
 
 // '/update-char/:id'
+export async function editChar(data: Character) {
+  try {
+    const { id } = data
+    const res = await request.patch(rootUrl + `/update-char/${id}`).send(data)
+    return res.body
+  } catch (e) {
+    console.error(e)
+  }
+}

@@ -11,7 +11,8 @@ export default function Nav() {
         <br />
         <Link to={'characters'}>Characters</Link>
         <br />
-        <Link to={'add-character'}>Add Your Favourite Character</Link>
+        <Link to={'character/add'}>Add Your Favourite Character</Link>
+        <br />
       </main>
       <footer></footer>
     </>
