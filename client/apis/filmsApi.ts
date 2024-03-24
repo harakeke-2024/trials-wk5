@@ -44,8 +44,10 @@ export async function editChar(data: Character) {
   try {
     const { id } = data
     const res = await request.patch(rootUrl + `/update-char/${id}`).send(data)
+    // console.log('EditChar Response:', res.body)
     return res.body
   } catch (e) {
     console.error(e)
+    throw new Error('Failed to update character')
   }
 }
