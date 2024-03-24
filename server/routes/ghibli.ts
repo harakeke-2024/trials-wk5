@@ -50,4 +50,18 @@ router.post('/new-character', async (req, res) => {
   }
 })
 
+router.patch('/update-char/:id', async (req, res) => {
+  try {
+    // const { name, film_id, image_url } = req.body
+    const newChar = req.body
+    const id = Number(req.params.id)
+    const added = await db.updateChar(id, newChar)
+
+    res.status(201).json(added)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
 export default router
