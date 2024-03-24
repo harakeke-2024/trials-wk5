@@ -23,3 +23,9 @@ export interface Character {
   name: string
   image_url: string
 }
+
+export interface CharacterData {
+  film_id: number
+  name: string
+  image_url: string
+}
