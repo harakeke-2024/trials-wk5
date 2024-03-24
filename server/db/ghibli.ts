@@ -37,6 +37,7 @@ export async function getCharsWithFilms(): Promise<Character[]> {
     .select(
       'characters.id as id',
       'characters.name as name',
+      'characters.image_url as img',
       'films.title as film',
       'films.original_title as originalTitle',
       'films.id as filmId',

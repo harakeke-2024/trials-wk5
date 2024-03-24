@@ -4,7 +4,7 @@ import {
   // useQueryClient,
   // MutationFunction,
 } from '@tanstack/react-query'
-import { getChars } from '../apis/filmsApi.ts'
+import { charsWithFilms /*, getChars*/ } from '../apis/filmsApi.ts'
 import { Link } from 'react-router-dom'
 
 export default function Characters() {
@@ -13,7 +13,7 @@ export default function Characters() {
     isLoading,
     isError,
     error,
-  } = useQuery({ queryKey: ['films'], queryFn: getChars })
+  } = useQuery({ queryKey: ['films'], queryFn: charsWithFilms })
 
   if (isLoading) return <h1>Loading...</h1>
 
@@ -26,7 +26,9 @@ export default function Characters() {
           {characters.map((char, index) => (
             <li key={index}>
               <h2>{char.name}</h2>
-              <img src={char.image_url} alt={`${char.name}`} />
+              <img src={char.img} alt={`${char.name}`} />
+              <p>From: {char.film}</p>
+              <p>Year of release: {char.year}</p>
               <Link to={`${char.id}/edit`}>
                 <p>edit character</p>
               </Link>

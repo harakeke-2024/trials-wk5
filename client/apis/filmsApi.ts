@@ -55,3 +55,12 @@ export async function editChar(data: Character) {
     throw new Error('Failed to update character')
   }
 }
+
+export async function charsWithFilms() /*: Promise<Character[] | undefined> */ {
+  try {
+    const res = await request.get(rootUrl + '/characters/with-films')
+    return res.body
+  } catch (e) {
+    console.error(e)
+  }
+}
