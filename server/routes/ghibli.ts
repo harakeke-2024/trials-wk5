@@ -4,6 +4,7 @@ import * as db from '../db/ghibli.ts'
 
 const router = Router()
 
+// films
 router.get('/films', async (req, res) => {
   try {
     const films = await db.getAllFilms()
@@ -15,6 +16,7 @@ router.get('/films', async (req, res) => {
   }
 })
 
+// dishes
 router.get('/dishes', async (req, res) => {
   try {
     const dishes = await db.getAllDishes()
@@ -26,6 +28,7 @@ router.get('/dishes', async (req, res) => {
   }
 })
 
+// characters
 router.get('/characters', async (req, res) => {
   try {
     const dishes = await db.getAllChars()
@@ -58,6 +61,18 @@ router.patch('/update-char/:id', async (req, res) => {
     const added = await db.updateChar(id, newChar)
 
     res.status(201).json(added)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
+router.delete('/delete/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    const deletedChar = await db.deleteChar(id)
+
+    res.json(deletedChar)
   } catch (error) {
     console.log(error)
     res.status(500).json({ message: 'Something went wrong' })

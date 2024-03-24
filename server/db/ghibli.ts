@@ -27,3 +27,7 @@ export async function addChar(newChar: CharacterData) {
 export async function updateChar(id: number, updatedChar: CharacterData) {
   return await db('characters').where('id', id).update(updatedChar)
 }
+
+export async function deleteChar(id: number) {
+  return await db('characters').where('id', id).del()
+}

@@ -31,7 +31,7 @@ export default function EditCharacter() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    console.log(char)
+    // console.log(char)
     mutation.mutate(char)
   }
 
