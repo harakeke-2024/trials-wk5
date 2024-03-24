@@ -20,7 +20,6 @@ export async function getAllChars(): Promise<Character[]> {
 }
 
 export async function addChar(newChar: CharacterData) {
-  const { name, film_id, image_url } = newChar
   return await db('characters').insert(newChar)
 }
 

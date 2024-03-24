@@ -32,7 +32,9 @@ export async function getChars(): Promise<Character[] | undefined> {
 
 export async function addNewChar(data: CharacterData) {
   try {
-    const res = await request.post(rootUrl + '/new-character').send(data)
+    const res = await request
+      .post(rootUrl + '/characters/new-character')
+      .send(data)
     return res.body
   } catch (e) {
     console.error(e)
@@ -43,7 +45,9 @@ export async function addNewChar(data: CharacterData) {
 export async function editChar(data: Character) {
   try {
     const { id } = data
-    const res = await request.patch(rootUrl + `/update-char/${id}`).send(data)
+    const res = await request
+      .patch(rootUrl + `/characters/update/${id}`)
+      .send(data)
     // console.log('EditChar Response:', res.body)
     return res.body
   } catch (e) {
