@@ -13,7 +13,7 @@ export default function RandomDish() {
   } = useQuery({ queryKey: ['dishes'], queryFn: dishesWithFilms })
 
   // const [min, setMin] = useState(1)
-  // const [max, setMax] = useState(4)
+  const [max, setMax] = useState(0)
   // const [randomInt, setRandomInt] = useState(2)
   // Record<string, never> was suggested by TS
   const [randomDish, setRandomDish] = useState<
@@ -24,10 +24,16 @@ export default function RandomDish() {
 
   if (isError) return <h1>Error; {error.message}</h1>
 
-  const max = 8
+  // const max = 8
   const min = 1
 
   function getRandomInt() /*:<Number>*/ {
+    if (!dishes || dishes.length === 0) {
+      return null
+    }
+    const length = dishes.length
+    setMax(length)
+    console.log(max)
     const random = Math.floor(Math.random() * max + min)
     return random
   }
