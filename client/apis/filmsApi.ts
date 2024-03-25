@@ -4,7 +4,7 @@ import {
   Dish,
   Character,
   CharacterData,
-  CharacterWithFilm,
+  CharWithFilm,
 } from '../../models/ghibli'
 
 const rootUrl = '/api/v1/ghibli'
@@ -62,9 +62,7 @@ export async function editChar(data: Character) {
   }
 }
 
-export async function charsWithFilms(): Promise<
-  CharacterWithFilm[] | undefined
-> {
+export async function charsWithFilms(): Promise<CharWithFilm[] | undefined> {
   try {
     const res = await request.get(rootUrl + '/characters/with-films')
     return res.body
