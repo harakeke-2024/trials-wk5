@@ -9,9 +9,11 @@ export default function RandomDishDisplay({ dish }: Props) {
   if (dish) {
     return (
       <>
-        <p>hello</p>
-        <p>{dish.name}</p>
+        <p>--------------------------------</p>
+        <p>RANDOM DISH DISPLAY COMPONENT</p>
+        <h1>{dish.name}</h1>
         <p>{dish.film}</p>
+        <img src={dish.img} alt={dish.name} />
       </>
     )
   }
