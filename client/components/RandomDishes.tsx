@@ -13,21 +13,11 @@ export default function RandomDishes() {
   const [min, setMin] = useState(1)
   const [max, setMax] = useState(4)
   const [randomInt, setRandomInt] = useState(2)
-  const [randomDish, setRandomDish] = useState({
-    id: 2,
-    film_id: 2,
-    name: 'Ramen',
-    image_url: 'https://www.ghibli.jp/gallery/ponyo035.jpg',
-    original_name: 'ラーメン',
-    description: 'ラーメン',
-  })
+  const [randomDish, setRandomDish] = useState({})
 
   if (isLoading) return <h1>Loading...</h1>
 
   if (isError) return <h1>Error; {error.message}</h1>
-
-  // const dishesLength = dishes?.length
-  // setMax(dishesLength)
 
   function getRandomInt() /*:<Number>*/ {
     const random = Math.floor(Math.random() * max + min)
@@ -43,12 +33,6 @@ export default function RandomDishes() {
     const currentDish = dishes[randomId]
     console.log(currentDish)
     return currentDish
-    // setRandomInt(getRandomInt())
-    // const randomId = randomInt - 1
-    // const currentDish = dishes[randomId]
-    // console.log(currentDish)
-    // setRandomDish(currentDish)
-    // return randomDish
   }
 
   function handleGetDish() {
