@@ -18,3 +18,5 @@ OR could have the parent component have the logic to determine which category wi
 parent is smart and contains logic.
 
 FOR NOW make a start using characters and foods and will make required changes as we move along.
+
+TOmorrow: make changes so that the display component and the getFilms one can both be used for any conditionally rendered category.

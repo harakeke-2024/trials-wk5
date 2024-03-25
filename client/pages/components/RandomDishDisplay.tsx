@@ -1,4 +1,5 @@
 import { DishWithFilm } from '../../../models/ghibli'
+import GetFilms from './GetFilms'
 
 interface Props {
   dish: DishWithFilm | Record<string, never> | null
@@ -11,8 +12,9 @@ export default function RandomDishDisplay({ dish }: Props) {
         <p>-----------------------------------------------------------</p>
         <p>RANDOM DISH DISPLAY COMPONENT</p>
         <h1>{dish.name}</h1>
-        <p>{dish.film}</p>
+        {/* <p>{dish.film}</p> */}
         <img src={dish.img} alt={dish.name} />
+        <GetFilms film={dish.film} />
       </>
     )
   }
