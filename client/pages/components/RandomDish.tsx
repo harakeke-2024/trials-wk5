@@ -4,7 +4,7 @@ import { useState } from 'react'
 import RandomDishDisplay from './RandomDishDisplay'
 import { DishWithFilm } from '../../../models/ghibli'
 
-export default function RandomDishes() {
+export default function RandomDish() {
   const {
     data: dishes,
     isLoading,

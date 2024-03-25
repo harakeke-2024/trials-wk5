@@ -1,11 +1,11 @@
-import RandomDishes from './components/RandomDishes'
+import RandomDish from './components/RandomDish'
 
 function Home() {
   return (
     <>
       <div>
         <h1>Ghibli Home!</h1>
-        <RandomDishes />
+        <RandomDish />
       </div>
     </>
   )
