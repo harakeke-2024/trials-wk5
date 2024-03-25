@@ -14,7 +14,7 @@ export default function RandomDish() {
 
   // const [min, setMin] = useState(1)
   const [max, setMax] = useState(0)
-  // const [randomInt, setRandomInt] = useState(2)
+
   // Record<string, never> was suggested by TS
   const [randomDish, setRandomDish] = useState<
     DishWithFilm | Record<string, never> | null
@@ -48,6 +48,9 @@ export default function RandomDish() {
     }
 
     const randomInt = getRandomInt()
+    if (!randomInt) {
+      return null
+    }
     const randomId = randomInt - 1
 
     const currentDish = dishes[randomId]
@@ -65,10 +68,6 @@ export default function RandomDish() {
       <div>
         <p>-----------------</p>
         <h2>Random Dish</h2>
-        {/* <p>under construction...</p>
-        <button onClick={() => getRandomInt()}>get random int</button>
-        <p>random int: {randomInt}</p> */}
-
         <button onClick={handleGetDish}>get random Dish</button>
         <p>random dish: {randomDish?.name}</p>
         <p>-----------------</p>
