@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { dishesWithFilms } from '../../apis/filmsApi'
 import { useState } from 'react'
 import RandomDishDisplay from './RandomDishDisplay'
+import { DishWithFilm } from '../../../models/ghibli'
 
 export default function RandomDishes() {
   const {
@@ -11,14 +12,20 @@ export default function RandomDishes() {
     error,
   } = useQuery({ queryKey: ['dishes'], queryFn: dishesWithFilms })
 
-  const [min, setMin] = useState(1)
-  const [max, setMax] = useState(4)
-  const [randomInt, setRandomInt] = useState(2)
-  const [randomDish, setRandomDish] = useState({})
+  // const [min, setMin] = useState(1)
+  // const [max, setMax] = useState(4)
+  // const [randomInt, setRandomInt] = useState(2)
+  // Record<string, never> was suggested by TS
+  const [randomDish, setRandomDish] = useState<
+    DishWithFilm | Record<string, never> | null
+  >({})
 
   if (isLoading) return <h1>Loading...</h1>
 
   if (isError) return <h1>Error; {error.message}</h1>
+
+  const max = 4
+  const min = 1
 
   function getRandomInt() /*:<Number>*/ {
     const random = Math.floor(Math.random() * max + min)
@@ -29,8 +36,14 @@ export default function RandomDishes() {
   // - add logic for figuring out the max position of the array
 
   function getRandomDish() {
+    // check dishes is truthy and an array with length > 0
+    if (!dishes || dishes.length === 0) {
+      return null
+    }
+
     const randomInt = getRandomInt()
     const randomId = randomInt - 1
+
     const currentDish = dishes[randomId]
     // console.log(currentDish)
     return currentDish
@@ -49,8 +62,8 @@ export default function RandomDishes() {
         <button onClick={() => getRandomInt()}>get random int</button>
         <p>random int: {randomInt}</p> */}
 
-        <button onClick={() => handleGetDish()}>get random Dish</button>
-        <p>random dish: {randomDish.name}</p>
+        <button onClick={handleGetDish}>get random Dish</button>
+        <p>random dish: {randomDish?.name}</p>
         <RandomDishDisplay dish={randomDish} />
       </div>
     )
