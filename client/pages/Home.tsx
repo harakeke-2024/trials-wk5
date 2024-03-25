@@ -4,19 +4,17 @@ import RandomChars from './components/RandomChars'
 
 function Home() {
   const [category, setCategory] = useState('')
-
-  const min = 1
-  const max = 2
-
-  function getRandomInt() {
-    const random = Math.floor(Math.random() * max + min)
-    return random
-  }
+  const [toggle, setToggle] = useState(false)
 
   function selectCategory() {
-    const num = getRandomInt()
-    if (num === 1) setCategory('dishes')
-    if (num === 2) setCategory('characters')
+    if (toggle === false) {
+      setCategory('dishes')
+      setToggle(true)
+    }
+    if (toggle === true) {
+      setCategory('characters')
+      setToggle(false)
+    }
   }
 
   return (

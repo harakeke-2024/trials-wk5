@@ -5,7 +5,6 @@ interface Props {
 }
 
 export default function RandomDishDisplay({ dish }: Props) {
-  console.log(dish)
   if (dish) {
     return (
       <>
