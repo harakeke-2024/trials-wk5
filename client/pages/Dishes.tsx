@@ -5,7 +5,7 @@ import {
   // MutationFunction,
 } from '@tanstack/react-query'
 import { getDishes } from '../apis/filmsApi.ts'
-import RandomDishes from './RandomDishes.tsx'
+import RandomDishes from './components/RandomDishes.tsx'
 
 export default function Dishes() {
   const {

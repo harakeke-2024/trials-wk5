@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { deleteCharacter, getDishes } from '../apis/filmsApi.ts'
+import { deleteCharacter, getDishes } from '../../apis/filmsApi.ts'
 
 export default function DeleteChar({ id }) {
   // here we will make a delete button and handle that functionality here.

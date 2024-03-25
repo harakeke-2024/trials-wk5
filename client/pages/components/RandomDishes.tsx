@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { getDishes } from '../apis/filmsApi.ts'
+import { getDishes } from '../../apis/filmsApi'
 import { useState } from 'react'
 
 export default function RandomDishes() {

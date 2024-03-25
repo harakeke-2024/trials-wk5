@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { charsWithFilms /*, getChars*/ } from '../apis/filmsApi.ts'
 import { Link } from 'react-router-dom'
-import DeleteChar from './DeleteChar.tsx'
+import DeleteChar from './components/DeleteChar.tsx'
 
 export default function Characters() {
   const {
