@@ -75,3 +75,12 @@ export async function deleteCharacter(
     console.error(e)
   }
 }
+
+export async function dishesWithFilms() {
+  try {
+    const res = await request.get(rootUrl + '/dishes/with-film')
+    return res.body
+  } catch (e) {
+    console.error(e)
+  }
+}

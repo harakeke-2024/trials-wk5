@@ -13,7 +13,7 @@ export async function getDishesWithFilms() {
       'dishes.name as name',
       'dishes.description as description',
       'dishes.image_url as img',
-      'films.title as title',
+      'films.title as film',
       'films.id as filmId',
       'films.release_year as year',
     )
