@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
-import { getDishes } from '../../apis/filmsApi'
+import { dishesWithFilms } from '../../apis/filmsApi'
 import { useState } from 'react'
+import RandomDishDisplay from './RandomDishDisplay'
 
 export default function RandomDishes() {
   const {
@@ -8,7 +9,7 @@ export default function RandomDishes() {
     isLoading,
     isError,
     error,
-  } = useQuery({ queryKey: ['dishes'], queryFn: getDishes })
+  } = useQuery({ queryKey: ['dishes'], queryFn: dishesWithFilms })
 
   const [min, setMin] = useState(1)
   const [max, setMax] = useState(4)
@@ -44,11 +45,13 @@ export default function RandomDishes() {
     return (
       <div>
         <h2>Random Dish</h2>
-        <p>under construction...</p>
+        {/* <p>under construction...</p>
         <button onClick={() => getRandomInt()}>get random int</button>
-        <p>random int: {randomInt}</p>
+        <p>random int: {randomInt}</p> */}
+
         <button onClick={() => handleGetDish()}>get random Dish</button>
         <p>random dish: {randomDish.name}</p>
+        <RandomDishDisplay dish={randomDish} />
       </div>
     )
   }

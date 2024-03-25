@@ -5,6 +5,7 @@ import {
   Character,
   CharacterData,
   CharWithFilm,
+  DishWithFilm,
 } from '../../models/ghibli'
 
 const rootUrl = '/api/v1/ghibli'
@@ -82,7 +83,7 @@ export async function deleteCharacter(
   }
 }
 
-export async function dishesWithFilms() {
+export async function dishesWithFilms(): Promise<DishWithFilm[] | void> {
   try {
     const res = await request.get(rootUrl + '/dishes/with-film')
     return res.body

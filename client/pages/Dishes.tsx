@@ -5,7 +5,6 @@ import {
   // MutationFunction,
 } from '@tanstack/react-query'
 import { getDishes } from '../apis/filmsApi.ts'
-import RandomDishes from './components/RandomDishes.tsx'
 
 export default function Dishes() {
   const {
@@ -22,7 +21,6 @@ export default function Dishes() {
   if (dishes) {
     return (
       <>
-        <RandomDishes />
         <ul>
           {dishes.map((dish, index) => (
             <li key={index}>
