@@ -65,7 +65,7 @@ export async function seed(knex) {
     {
       id: 8,
       film_id: 4,
-      name: 'Konpeito Cnady',
+      name: 'Konpeito Candy',
       image_url: 'https://www.ghibli.jp/gallery/chihiro014.jpg',
       original_name: 'コンペイトー',
       description: 'コンペイトー',

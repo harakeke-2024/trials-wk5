@@ -38,7 +38,7 @@ export default function RandomDish() {
     return (
       <div>
         <p>-----------------</p>
-        <h2>Random Dish</h2>
+        <h2>Random Dish Component</h2>
         <button onClick={handleGetCategoryItem}>get random Dish</button>
         <p>random dish: {randomDish?.name}</p>
         <p>-----------------</p>
