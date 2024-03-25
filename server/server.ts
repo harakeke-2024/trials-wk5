@@ -11,6 +11,8 @@ server.use(express.json())
 server.use('/api/v1/ghibli', ghibliRoutes)
 server.use('/api/v1/ghibli/characters', ghibliCharRoutes)
 
+// when routes have not been made yet, consolelogs can be made here that call those Fns to check their functionality.
+
 if (process.env.NODE_ENV === 'production') {
   server.use(express.static(Path.resolve('public')))
   server.use('/assets', express.static(Path.resolve('./dist/assets')))

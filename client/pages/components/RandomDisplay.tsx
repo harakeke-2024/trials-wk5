@@ -1,8 +1,8 @@
-import { DishWithFilm } from '../../../models/ghibli'
+import { CategoryWithFilm } from '../../../models/ghibli'
 import GetFilms from './GetFilms'
 
 interface Props {
-  dish: DishWithFilm | Record<string, never> | null
+  dish: CategoryWithFilm | Record<string, never> | null | undefined
 }
 
 export default function RandomDisplay({ dish }: Props) {
