@@ -14,6 +14,7 @@ export async function getDishesWithFilms() {
       'dishes.description as description',
       'dishes.image_url as img',
       'films.title as film',
+      'films.original_title as originalTitle',
       'films.id as filmId',
       'films.release_year as year',
     )

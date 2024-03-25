@@ -33,6 +33,7 @@ export interface DishWithFilm {
   description: string
   img: string
   film: string
+  originalTitle: string
   filmId: number
   year: string
 }
@@ -40,6 +41,7 @@ export interface DishWithFilm {
 export interface CharWithFilm {
   id: number
   name: string
+  description: string
   img: string
   film: string
   originalTitle: string

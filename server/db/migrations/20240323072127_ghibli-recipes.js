@@ -4,7 +4,7 @@
  */
 export function up(knex) {
   return knex.schema.createTable('recipes', (table) => {
-    table.increments('id').primary()
+    table.integer('id').primary()
     table.integer('dish_id').references('dishes.id').onDelete('CASCADE')
     table.string('name')
     table.string('description')
