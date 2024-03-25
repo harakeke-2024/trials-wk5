@@ -13,24 +13,48 @@ export default function RandomDishes() {
   const [min, setMin] = useState(1)
   const [max, setMax] = useState(4)
   const [randomInt, setRandomInt] = useState(2)
+  const [randomDish, setRandomDish] = useState({
+    id: 2,
+    film_id: 2,
+    name: 'Ramen',
+    image_url: 'https://www.ghibli.jp/gallery/ponyo035.jpg',
+    original_name: 'ラーメン',
+    description: 'ラーメン',
+  })
+
+  if (isLoading) return <h1>Loading...</h1>
+
+  if (isError) return <h1>Error; {error.message}</h1>
+
+  // const dishesLength = dishes?.length
+  // setMax(dishesLength)
 
   function getRandomInt() /*:<Number>*/ {
     const random = Math.floor(Math.random() * max + min)
-    setRandomInt(random)
-    return randomInt
+    return random
   }
 
   // random fn has been set up. Next, need to call it inside the return block to ensure it works. -DONE
   // - add logic for figuring out the max position of the array
 
   function getRandomDish() {
-    setRandomInt(getRandomInt())
-    return randomInt
+    const randomInt = getRandomInt()
+    const randomId = randomInt - 1
+    const currentDish = dishes[randomId]
+    console.log(currentDish)
+    return currentDish
+    // setRandomInt(getRandomInt())
+    // const randomId = randomInt - 1
+    // const currentDish = dishes[randomId]
+    // console.log(currentDish)
+    // setRandomDish(currentDish)
+    // return randomDish
   }
 
-  if (isLoading) return <h1>Loading...</h1>
-
-  if (isError) return <h1>Error; {error.message}</h1>
+  function handleGetDish() {
+    const dish = getRandomDish()
+    setRandomDish(dish)
+  }
 
   if (dishes) {
     return (
@@ -39,6 +63,8 @@ export default function RandomDishes() {
         <p>under construction...</p>
         <button onClick={() => getRandomInt()}>get random int</button>
         <p>random int: {randomInt}</p>
+        <button onClick={() => handleGetDish()}>get random Dish</button>
+        <p>random dish: {randomDish.name}</p>
       </div>
     )
   }
