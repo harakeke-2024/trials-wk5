@@ -25,18 +25,28 @@ export async function seed(knex) {
     {
       id: 3,
       film_id: 3,
-      name: 'Bento Box',
+      name: "Satsuki's Bento Box",
       image_url: 'https://www.ghibli.jp/gallery/totoro015.jpg',
-      original_name: 'お弁当',
+      original_name: 'サツキのお弁当',
       description: 'お弁当',
     },
     {
-      id: 5,
+      id: 4,
       film_id: 3,
       name: 'Chocolate Cake',
       image_url: 'https://www.ghibli.jp/gallery/majo043.jpg',
       original_name: 'チョコレートケーキ',
       description: 'チョコレートケーキ',
     },
+    {
+      id: 5,
+      film_id: 1,
+      name: 'Nabeyaki Udon',
+      image_url: 'https://www.ghibli.jp/gallery/mimi043.jpg',
+      original_name: '鍋焼きうどん',
+      description: '鍋焼きうどん',
+    },
   ])
 }
+
+// https://dadskitchen.gyuujaku.com/ghibli/ghibli-meshi-2/
