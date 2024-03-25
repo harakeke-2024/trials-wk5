@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { deleteCharacter } from '../apis/filmsApi.ts'
+import { deleteCharacter, getDishes } from '../../apis/filmsApi.ts'
 
 interface Props {
   id: number

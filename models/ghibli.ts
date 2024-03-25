@@ -17,24 +17,31 @@ export interface Dish {
   description: string
 }
 
-export interface Character {
-  id: number
-  film_id: number
-  name: string
-  image_url: string
-}
-
 export interface CharacterData {
   film_id: number
   name: string
   image_url: string
 }
 
-export interface CharacterWithFilm {
+export interface Character extends CharacterData {
   id: number
+}
+
+export interface DishWithFilm {
+  id: number
+  name: string
+  description: string
+  img: string
   film: string
+  filmId: number
+  year: string
+}
+
+export interface CharWithFilm {
+  id: number
   name: string
   img: string
+  film: string
   originalTitle: string
   filmId: number
   year: string

@@ -4,7 +4,8 @@ import {
   Dish,
   Character,
   CharacterData,
-  CharacterWithFilm,
+  CharWithFilm,
+  DishWithFilm,
 } from '../../models/ghibli'
 
 const rootUrl = '/api/v1/ghibli'
@@ -62,9 +63,7 @@ export async function editChar(data: Character) {
   }
 }
 
-export async function charsWithFilms(): Promise<
-  CharacterWithFilm[] | undefined
-> {
+export async function charsWithFilms(): Promise<CharWithFilm[] | undefined> {
   try {
     const res = await request.get(rootUrl + '/characters/with-films')
     return res.body
@@ -78,6 +77,15 @@ export async function deleteCharacter(
 ) /*: Promise<Character[] | undefined> */ {
   try {
     const res = await request.delete(rootUrl + `/characters/delete/${id}`)
+    return res.body
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+export async function dishesWithFilms(): Promise<DishWithFilm[] | void> {
+  try {
+    const res = await request.get(rootUrl + '/dishes/with-films')
     return res.body
   } catch (e) {
     console.error(e)

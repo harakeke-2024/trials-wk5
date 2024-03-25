@@ -25,18 +25,52 @@ export async function seed(knex) {
     {
       id: 3,
       film_id: 3,
-      name: 'Bentou Box',
+      name: "Satsuki's Bento Box",
       image_url: 'https://www.ghibli.jp/gallery/totoro015.jpg',
-      original_name: 'お弁当',
+      original_name: 'サツキのお弁当',
       description: 'お弁当',
     },
     {
-      id: 5,
+      id: 4,
       film_id: 3,
       name: 'Chocolate Cake',
       image_url: 'https://www.ghibli.jp/gallery/majo043.jpg',
       original_name: 'チョコレートケーキ',
       description: 'チョコレートケーキ',
     },
+    {
+      id: 5,
+      film_id: 1,
+      name: 'Nabeyaki Udon',
+      image_url: 'https://www.ghibli.jp/gallery/mimi043.jpg',
+      original_name: '鍋焼きうどん',
+      description: '鍋焼きうどん',
+    },
+    {
+      id: 6,
+      film_id: 1,
+      name: 'Siberia',
+      image_url: 'https://www.ghibli.jp/gallery/kazetachinu015.jpg',
+      original_name: 'シベリア',
+      description: 'シベリア',
+    },
+    {
+      id: 7,
+      film_id: 5,
+      name: 'Herring and pumpkin pie',
+      image_url: 'https://www.ghibli.jp/gallery/majo032.jpg',
+      original_name: 'ニシンのパイ',
+      description: 'ニシンのパイ',
+    },
+    {
+      id: 8,
+      film_id: 4,
+      name: 'Konpeito Cnady',
+      image_url: 'https://www.ghibli.jp/gallery/chihiro014.jpg',
+      original_name: 'コンペイトー',
+      description: 'コンペイトー',
+    },
   ])
 }
+
+// https://dadskitchen.gyuujaku.com/ghibli/ghibli-meshi-2/

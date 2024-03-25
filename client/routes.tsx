@@ -1,11 +1,11 @@
 import { createRoutesFromElements, Route } from 'react-router-dom'
-import Layout from './components/Layout.tsx'
-import Films from './components/Films.tsx'
-import Home from './components/Home.tsx'
-import Dishes from './components/Dishes.tsx'
-import Characters from './components/Characters.tsx'
-import AddCharacter from './components/AddCharacter.tsx'
-import EditCharacter from './components/EditCharacter.tsx'
+import Layout from './pages/Layout.tsx'
+import Films from './pages/Films.tsx'
+import Home from './pages/Home.tsx'
+import Dishes from './pages/Dishes.tsx'
+import Characters from './pages/Characters.tsx'
+import AddCharacter from './pages/AddCharacter.tsx'
+import EditCharacter from './pages/EditCharacter.tsx'
 export default createRoutesFromElements(
   <Route path="/" element={<Layout />}>
     <Route index element={<Home />} />
