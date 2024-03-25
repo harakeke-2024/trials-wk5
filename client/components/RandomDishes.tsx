@@ -17,7 +17,7 @@ export default function RandomDishes() {
   function getRandomDish() /*:<Number>*/ {
     const random = Math.floor(Math.random() * max + min)
     setRandomInt(random)
-    return randomInt
+    return random
   }
 
   // random fn has been set up. Next, need to call it inside the return block to ensure it works.
@@ -30,7 +30,12 @@ export default function RandomDishes() {
   if (dishes) {
     return (
       <div>
-        <p>hello</p>
+        <h2>Random Dish</h2>
+        <p>under construction...</p>
+        <button onClick={() => setRandomInt(getRandomDish())}>
+          get random int
+        </button>
+        <p>random int: {randomInt}</p>
       </div>
     )
   }
