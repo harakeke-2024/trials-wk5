@@ -1,7 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { charsWithFilms /*, getChars*/ } from '../apis/filmsApi.ts'
-import { Link } from 'react-router-dom'
-import DeleteChar from './components/DeleteChar.tsx'
+import { charsWithFilms } from '../../apis/filmsApi.ts'
 
 export default function RandomChars() {
   const {
