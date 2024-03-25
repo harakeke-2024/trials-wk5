@@ -17,6 +17,10 @@ export default function GetFilms({ film }: Props) {
 
   if (isError) return <h1>Error; {error.message}</h1>
 
+  function getRandomFilm() {
+    return 3
+  }
+
   if (films) {
     return (
       <>

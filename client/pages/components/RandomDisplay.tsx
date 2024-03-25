@@ -5,7 +5,7 @@ interface Props {
   dish: DishWithFilm | Record<string, never> | null
 }
 
-export default function RandomDishDisplay({ dish }: Props) {
+export default function RandomDisplay({ dish }: Props) {
   if (dish) {
     return (
       <>

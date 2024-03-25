@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
 import { dishesWithFilms } from '../../apis/filmsApi'
 import { useState } from 'react'
-import RandomDishDisplay from './RandomDishDisplay'
+import RandomDisplay from './RandomDisplay'
 import { DishWithFilm } from '../../../models/ghibli'
+import { randomInt } from './randomFunctions'
 
 export default function RandomDish() {
   const {
@@ -14,6 +15,8 @@ export default function RandomDish() {
 
   // const [min, setMin] = useState(1)
   const [max, setMax] = useState(0)
+  // const max = 8
+  const min = 1
 
   // Record<string, never> was suggested by TS
   const [randomDish, setRandomDish] = useState<
@@ -24,18 +27,15 @@ export default function RandomDish() {
 
   if (isError) return <h1>Error; {error.message}</h1>
 
-  // const max = 8
-  const min = 1
-
-  function getRandomInt() /*:<Number>*/ {
+  function getRandomId() {
     if (!dishes || dishes.length === 0) {
       return null
     }
     const length = dishes.length
     setMax(length)
-    console.log(max)
-    const random = Math.floor(Math.random() * max + min)
-    return random
+    // console.log(max)
+    const randomId = randomInt(min, max) - 1
+    return randomId
   }
 
   // random fn has been set up. Next, need to call it inside the return block to ensure it works. -DONE
@@ -47,19 +47,20 @@ export default function RandomDish() {
       return null
     }
 
-    const randomInt = getRandomInt()
+    const randomId = getRandomId()
     if (!randomInt) {
       return null
+    } else if (randomId) {
+      const currentDish = dishes[randomId]
+      console.log(currentDish)
+      return currentDish
     }
-    const randomId = randomInt - 1
-
-    const currentDish = dishes[randomId]
-    // console.log(currentDish)
-    return currentDish
   }
 
   function handleGetDish() {
     const dish = getRandomDish()
+    if (!dish) return null
+
     setRandomDish(dish)
   }
 
@@ -71,7 +72,7 @@ export default function RandomDish() {
         <button onClick={handleGetDish}>get random Dish</button>
         <p>random dish: {randomDish?.name}</p>
         <p>-----------------</p>
-        <RandomDishDisplay dish={randomDish} />
+        <RandomDisplay dish={randomDish} />
       </div>
     )
   }
