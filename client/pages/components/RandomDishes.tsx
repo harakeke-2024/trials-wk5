@@ -24,7 +24,7 @@ export default function RandomDishes() {
 
   if (isError) return <h1>Error; {error.message}</h1>
 
-  const max = 4
+  const max = 8
   const min = 1
 
   function getRandomInt() /*:<Number>*/ {
@@ -57,6 +57,7 @@ export default function RandomDishes() {
   if (dishes) {
     return (
       <div>
+        <p>-----------------</p>
         <h2>Random Dish</h2>
         {/* <p>under construction...</p>
         <button onClick={() => getRandomInt()}>get random int</button>
@@ -64,6 +65,7 @@ export default function RandomDishes() {
 
         <button onClick={handleGetDish}>get random Dish</button>
         <p>random dish: {randomDish?.name}</p>
+        <p>-----------------</p>
         <RandomDishDisplay dish={randomDish} />
       </div>
     )
