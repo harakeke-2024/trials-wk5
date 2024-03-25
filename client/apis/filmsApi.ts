@@ -85,7 +85,7 @@ export async function deleteCharacter(
 
 export async function dishesWithFilms(): Promise<DishWithFilm[] | void> {
   try {
-    const res = await request.get(rootUrl + '/dishes/with-film')
+    const res = await request.get(rootUrl + '/dishes/with-films')
     return res.body
   } catch (e) {
     console.error(e)
