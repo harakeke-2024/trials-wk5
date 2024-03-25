@@ -1,5 +1,7 @@
 import { CategoryWithFilm } from '../../../models/ghibli'
 
+// - - - - RANDOM CATEGORY ITEM FNs - - - -
+
 // used just to get random number
 export function randomInt(min: number, max: number): number {
   const random = Math.floor(Math.random() * max + min)
@@ -20,6 +22,8 @@ export function getRandomId(array: CategoryWithFilm[]) {
 export function getRandomItem(array: CategoryWithFilm[]) {
   const randomId = getRandomId(array)
   const currentDish = array[randomId]
-  // console.log(currentDish)
+  console.log(currentDish)
   return currentDish
 }
+
+// - - - - RANDOM FILM FNs - - - -
