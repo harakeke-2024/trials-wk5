@@ -4,17 +4,15 @@ import RandomChars from './components/RandomChars'
 
 function Home() {
   const [category, setCategory] = useState('')
-  const [toggle, setToggle] = useState(false)
+  const [counter, setCounter] = useState(0)
 
   function selectCategory() {
-    if (toggle === false) {
+    if (counter % 2 === 0) {
       setCategory('dishes')
-      setToggle(true)
-    }
-    if (toggle === true) {
+    } else if (counter % 2 === 1) {
       setCategory('characters')
-      setToggle(false)
     }
+    setCounter((prevCounter) => prevCounter + 1)
   }
 
   return (
