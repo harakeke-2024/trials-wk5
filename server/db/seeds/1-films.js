@@ -56,5 +56,35 @@ export async function seed(knex) {
       description:
         'Thirteen-year-old Kiki tries to become an independent witch and gets a job at a delivery service. She wakes up one day to find that she can neither fly her broom nor talk to her cat.',
     },
+    {
+      id: 6,
+      title: 'Whisper of the Heart',
+      release_year: '1995',
+      banner_url: 'https://www.ghibli.jp/images/mimi.jpg',
+      director: 'Yoshifumi Kondō',
+      original_title: '耳をすませば',
+      description:
+        'Shizuku, an aspiring writer, meets Seiji, a boy who wants to become a master luthier. The two fall in love and work simultaneously towards achieving their independent goals.',
+    },
+    {
+      id: 7,
+      title: 'The Cat Returns',
+      release_year: '2002',
+      banner_url: 'https://www.ghibli.jp/images/baron.jpg',
+      director: 'Hiroyuki Morita',
+      original_title: '猫の恩返し',
+      description:
+        'Haru, who can communicate with cats, saves Lune, the prince of the Cat Kingdom, and unknowingly accepts his hand in marriage. However, after she enters the kingdom, she starts turning into a cat.',
+    },
+    {
+      id: 8,
+      title: 'The Wind Rises',
+      release_year: '2013',
+      banner_url: 'https://www.ghibli.jp/images/kazetachinu.jpg',
+      director: 'Hayao Miyazaki',
+      original_title: '風立ちぬ',
+      description:
+        'Jiro Horikoshi studies assiduously to fulfil his aim of becoming an aeronautical engineer. As WWII begins, fighter aircraft designed by him end up getting used by the Japanese Empire against its foes.',
+    },
   ])
 }
