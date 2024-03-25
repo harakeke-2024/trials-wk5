@@ -1,5 +1,11 @@
 import request from 'superagent'
-import { Film, Dish, Character, CharacterData } from '../../models/ghibli'
+import {
+  Film,
+  Dish,
+  Character,
+  CharacterData,
+  CharacterWithFilm,
+} from '../../models/ghibli'
 
 const rootUrl = '/api/v1/ghibli'
 
@@ -56,7 +62,9 @@ export async function editChar(data: Character) {
   }
 }
 
-export async function charsWithFilms() /*: Promise<Character[] | undefined> */ {
+export async function charsWithFilms(): Promise<
+  CharacterWithFilm[] | undefined
+> {
   try {
     const res = await request.get(rootUrl + '/characters/with-films')
     return res.body
