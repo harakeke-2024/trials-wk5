@@ -5,6 +5,12 @@ interface Props {
 }
 
 export default function RandomDishDisplay({ dish }: Props) {
-  console.log(obj)
-  return <p>hello</p>
+  console.log(dish)
+  return (
+    <>
+      <p>hello</p>
+      <p>{dish.name}</p>
+      <p>{dish.film}</p>
+    </>
+  )
 }

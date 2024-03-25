@@ -32,7 +32,7 @@ export default function RandomDishes() {
     const randomInt = getRandomInt()
     const randomId = randomInt - 1
     const currentDish = dishes[randomId]
-    console.log(currentDish)
+    // console.log(currentDish)
     return currentDish
   }
 
