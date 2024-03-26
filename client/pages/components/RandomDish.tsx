@@ -1,20 +1,20 @@
 import { useQueryClient } from '@tanstack/react-query'
 import useRandomDishes from '../../hooks/useRandomDishes'
-// import { useState } from 'react'
+import { useState } from 'react'
 // import RandomChars from './components/RandomChars'
 
 export default function RandomDish() {
-  // const [category, setCategory] = useState('')
-  // const [counter, setCounter] = useState(0)
+  const [category, setCategory] = useState('')
+  const [counter, setCounter] = useState(0)
 
-  // function selectCategory() {
-  //   if (counter % 2 === 0) {
-  //     setCategory('dishes')
-  //   } else if (counter % 2 === 1) {
-  //     setCategory('characters')
-  //   }
-  //   setCounter((prevCounter) => prevCounter + 1)
-  // }
+  function selectCategory() {
+    if (counter % 2 === 0) {
+      setCategory('dishes')
+    } else if (counter % 2 === 1) {
+      setCategory('characters')
+    }
+    setCounter((prevCounter) => prevCounter + 1)
+  }
 
   const queryClient = useQueryClient()
   const { data: dishes, isError, isLoading, error } = useRandomDishes()
@@ -27,9 +27,16 @@ export default function RandomDish() {
   // - add logic for figuring out the max position of the array
 
   function handleGetCategoryItem() {
-    // selectCategory()
-
-    getNewDishes()
+    selectCategory()
+    switch (category) {
+      case 'characters':
+        getNewDishes()
+        console.log('characters!!!')
+        break
+      default:
+        getNewDishes()
+        console.log('actually dishes!')
+    }
   }
 
   function getNewDishes() {
@@ -37,8 +44,9 @@ export default function RandomDish() {
   }
 
   if (dishes) {
-    console.log(dishes[0])
-    console.log(dishes[1])
+    // console.log(dishes[0])
+    // console.log(dishes[1])
+    // console.log(category)
     return (
       <div>
         <p>-----------------</p>
