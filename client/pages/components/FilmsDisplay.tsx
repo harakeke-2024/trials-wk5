@@ -34,6 +34,7 @@ export default function FilmsDisplay({ film }: Props) {
     return (
       <>
         <p>film prop (correct film): {film}</p>
+        <p>first film in array: {films[0].title}</p>
         <p>random index position (0-7): {randomI}</p>
         <p>random film index position: {randomFilmmmm?.id}</p>
         <p>random film using index position: {randomFilmmmm?.title}</p>

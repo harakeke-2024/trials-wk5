@@ -5,7 +5,7 @@ import { CategoryWithFilm, Film } from '../../../models/ghibli'
 // used just to get random number - inclusive of max and min
 export function randomInt(min: number, max: number): number {
   const random = Math.floor(Math.random() * max + min)
-  console.log(`random Int: ${random}`)
+  // console.log(`random Int: ${random}`)
   return random
 }
 
@@ -23,7 +23,7 @@ export function getRandomId(array: CategoryWithFilm[]) {
 export function getRandomItem(array: CategoryWithFilm[]) {
   const randomId = getRandomId(array)
   const currentDish = array[randomId]
-  console.log(currentDish)
+  // console.log(currentDish)
   return currentDish
 }
 

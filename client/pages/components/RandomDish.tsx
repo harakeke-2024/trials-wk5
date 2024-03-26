@@ -30,7 +30,7 @@ export default function RandomDish() {
       return null
     }
     const dish = getRandomItem(dishes)
-    console.log(`dish: ${dish.name}`)
+    // console.log(`dish: ${dish.name}`)
     setRandomDish(dish)
   }
 
