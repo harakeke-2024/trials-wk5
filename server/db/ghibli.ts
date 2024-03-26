@@ -8,7 +8,7 @@ export async function getAllFilms(): Promise<Film[]> {
 }
 
 export async function getFilmById(id: number): Promise<Film[]> {
-  return await db('films').select().where('id', id)
+  return await db('films').select().where('id', id).first()
 }
 
 // dishes fns

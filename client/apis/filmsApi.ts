@@ -18,6 +18,15 @@ export async function getFilms(): Promise<Film[] | undefined> {
   }
 }
 
+export async function getFilm(id: number): Promise<Film | undefined> {
+  try {
+    const res = await request.get(rootUrl + `/films/${id}`)
+    return res.body
+  } catch (e) {
+    console.error(e)
+  }
+}
+
 export async function getDishes(): Promise<Dish[] | undefined> {
   try {
     const res = await request.get(rootUrl + '/dishes')
