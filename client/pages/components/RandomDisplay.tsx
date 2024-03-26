@@ -7,6 +7,8 @@ interface Props {
 }
 
 export default function RandomDisplay({ dish }: Props) {
+  console.log('answer below')
+  console.log(dish)
   if (dish) {
     return (
       <>
@@ -16,7 +18,8 @@ export default function RandomDisplay({ dish }: Props) {
         {/* <p>{dish.film}</p> */}
         <img src={dish.img} alt={dish.name} />
         <p>POSSIBLE FILM ANSWERS COMPONENT</p>
-        <FilmsDisplay film={dish.film} id={dish.id} />
+        <FilmsDisplay film={dish.film} id={dish.filmId} />
+
         {/* <GetFilms film={dish.film} /> */}
       </>
     )
