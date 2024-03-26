@@ -1,10 +1,9 @@
-import { useState } from 'react'
-import RandomDish from './components/RandomDish'
-import RandomChars from './components/RandomChars'
+// import { useState } from 'react'
+// import RandomChars from './components/RandomChars'
 
 function Home() {
-  const [category, setCategory] = useState('')
-  const [counter, setCounter] = useState(0)
+  // const [category, setCategory] = useState('')
+  // const [counter, setCounter] = useState(0)
 
   // function selectCategory() {
   //   if (counter % 2 === 0) {
@@ -21,7 +20,7 @@ function Home() {
         <h1>Ghibli Home!</h1>
         {/* <button onClick={selectCategory}>Next</button> */}
         {/* {category === 'dishes' && <RandomDish />} */}
-        {category === 'characters' && <RandomChars />}
+        {/* {category === 'characters' && <RandomChars />} */}
       </div>
     </>
   )
