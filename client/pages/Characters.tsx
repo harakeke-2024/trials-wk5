@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query'
 import { charsWithFilms /*, getChars*/ } from '../apis/filmsApi.ts'
 import { Link } from 'react-router-dom'
-import DeleteChar from './components/DeleteChar.tsx'
+import useDeleteChar from '../hooks/useDeleteChar.ts'
 
 export default function Characters() {
+  const deleteChar = useDeleteChar()
+
   const {
     data: characters,
     isLoading,
@@ -14,6 +16,10 @@ export default function Characters() {
   if (isLoading) return <h1>Loading...</h1>
 
   if (isError) return <h1>Error; {error.message}</h1>
+
+  function handleDelete(id: number) {
+    deleteChar.mutate({ id })
+  }
 
   if (characters) {
     return (
@@ -28,7 +34,9 @@ export default function Characters() {
               <Link to={`${char.id}/edit`}>
                 <p>edit character</p>
               </Link>
-              <DeleteChar id={char.id} />
+              <button onClick={() => handleDelete(char.id)}>
+                Delete Character
+              </button>
             </li>
           ))}
         </ul>
