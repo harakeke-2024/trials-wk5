@@ -6,9 +6,10 @@ import { randomFilmFn, randomIndex, randomInt } from './randomFunctions'
 
 interface Props {
   film: string
+  id: number
 }
 
-export default function FilmsDisplay({ film }: Props) {
+export default function FilmsDisplay({ film, id }: Props) {
   // const [randomFilm, setRandomFilm] = useState<
   //   Film | Record<string, never> | null | undefined
   // >({})
