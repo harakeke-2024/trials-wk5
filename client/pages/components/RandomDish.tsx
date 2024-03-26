@@ -2,8 +2,9 @@ import { useQuery } from '@tanstack/react-query'
 import { dishesWithFilms } from '../../apis/filmsApi'
 import { useState } from 'react'
 import RandomDisplay from './RandomDisplay'
-import { CategoryWithFilm } from '../../../models/ghibli'
+import { CategoryWithFilm, Film } from '../../../models/ghibli'
 import { getRandomItem } from './randomFunctions'
+import GetFilm from './GetFilm'
 
 export default function RandomDish() {
   const {
@@ -12,6 +13,10 @@ export default function RandomDish() {
     isError,
     error,
   } = useQuery({ queryKey: ['dishes'], queryFn: dishesWithFilms })
+
+  const [randomFilm, setRandomFilm] = useState<
+    Film | Record<string, never> | null | undefined
+  >({})
 
   // Record<string, never> was suggested by TS
   const [randomDish, setRandomDish] = useState<
@@ -34,14 +39,16 @@ export default function RandomDish() {
     setRandomDish(dish)
   }
 
-  if (dishes) {
+  if (dishes && randomDish) {
     return (
       <div>
         <p>-----------------</p>
         <h2>Random Dish Component</h2>
         <button onClick={handleGetCategoryItem}>get random Dish</button>
-        <p>random dish: {randomDish?.name}</p>
+        <p>random dish: {randomDish.name}</p>
         <p>-----------------</p>
+        <p>{randomFilm?.title}</p>
+        {/* <GetFilm id={randomDish.filmId} setFilm={setRandomFilm} /> */}
         <RandomDisplay dish={randomDish} />
       </div>
     )
