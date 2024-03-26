@@ -93,10 +93,11 @@ export async function charsWithFilms(): Promise<
 
 export async function deleteCharacter(
   id: number,
+  name: string,
 ) /*: Promise<Character[] | undefined> */ {
   try {
-    const res = await request.delete(rootUrl + `/characters/delete/${id}`)
-    return res.body
+    await request.delete(rootUrl + `/characters/delete/${id}`)
+    alert(`${name} has been deleted`)
   } catch (e) {
     console.error(e)
   }

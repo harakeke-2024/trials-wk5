@@ -17,8 +17,8 @@ export default function Characters() {
 
   if (isError) return <h1>Error; {error.message}</h1>
 
-  function handleDelete(id: number) {
-    deleteChar.mutate({ id })
+  function handleDelete(id: number, name: string) {
+    deleteChar.mutate({ id, name })
   }
 
   if (characters) {
@@ -34,7 +34,7 @@ export default function Characters() {
               <Link to={`${char.id}/edit`}>
                 <p>edit character</p>
               </Link>
-              <button onClick={() => handleDelete(char.id)}>
+              <button onClick={() => handleDelete(char.id, char.name)}>
                 Delete Character
               </button>
             </li>
