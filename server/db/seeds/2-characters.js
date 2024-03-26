@@ -45,7 +45,7 @@ export async function seed(knex) {
     {
       id: 6,
       name: 'Soot Sprites',
-      film_id: 3,
+      film_id: 4,
       description: 'under construction',
       image_url: 'https://www.ghibli.jp/gallery/chihiro014.jpg',
     },
@@ -59,7 +59,7 @@ export async function seed(knex) {
     {
       id: 8,
       name: 'The Baron',
-      film_id: 1,
+      film_id: 7,
       description: 'under construction',
       image_url: 'https://www.ghibli.jp/gallery/mimi013.jpg',
     },
@@ -97,14 +97,14 @@ export async function seed(knex) {
     {
       id: 13,
       name: 'Shizuku',
-      film_id: 1,
+      film_id: 6,
       description: 'under construction',
       image_url: 'https://www.ghibli.jp/gallery/mimi049.jpg',
     },
     {
       id: 14,
       name: 'Haku',
-      film_id: 1,
+      film_id: 4,
       description: 'under construction',
       image_url: 'https://www.ghibli.jp/gallery/chihiro005.jpg',
     },
