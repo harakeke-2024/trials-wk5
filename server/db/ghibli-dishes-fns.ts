@@ -1,5 +1,5 @@
 import db from './connection.ts'
-import { Dish } from '../../models/ghibli.ts'
+import { CategoryWithFilm, Dish } from '../../models/ghibli.ts'
 
 export async function getAllDishes(): Promise<Dish[]> {
   return await db('dishes').select()
@@ -20,14 +20,7 @@ export async function getDishesWithFilms() {
     )
 }
 
-export async function getTwoDishes() {
-  // return await db('dishes')
-  //   .select()
-  //   .from('films')
-  //   .join('films', 'films.id', '=', 'dishes.film_id')
-  //   .orderByRaw('RANDOM()')
-  //   .limit(2)
-
+export async function getTwoDishes(): Promise<CategoryWithFilm[]> {
   // Fetch first random dish
   const randomDishId = await db('dishes')
     .select('id', 'film_id')
