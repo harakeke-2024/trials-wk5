@@ -114,8 +114,12 @@ export async function dishesWithFilms(): Promise<CategoryWithFilm[] | void> {
 
 export async function dishesDiffFilms(): Promise<CategoryWithFilm[] | void> {
   try {
-    const res = await request.get(rootUrl + '/two-dishes')
-    return res.body
+    const dishes = await request.get(rootUrl + '/two-dishes')
+
+    // const films = await request.get(rootUrl + '/two-dishes')
+
+    // return dishes: dishes.body, films: films.body
+    return dishes.body
   } catch (e) {
     console.error(e)
   }

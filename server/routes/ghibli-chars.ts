@@ -67,4 +67,17 @@ router.delete('/delete/:id', async (req, res) => {
   }
 })
 
+// random chars and films joined
+
+router.get('/two-characters', async (req, res) => {
+  try {
+    const chars = await db.getTwoChars()
+
+    res.status(200).json(chars)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' }).send(error)
+  }
+})
+
 export default router

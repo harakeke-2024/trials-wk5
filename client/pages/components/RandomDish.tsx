@@ -5,7 +5,9 @@ import { useState } from 'react'
 
 export default function RandomDish() {
   const [category, setCategory] = useState('')
+  // dishes instead of cat - boolean
   const [counter, setCounter] = useState(0)
+  const [items, setItems] = useState([])
 
   function selectCategory() {
     if (counter % 2 === 0) {
@@ -23,14 +25,20 @@ export default function RandomDish() {
 
   if (isError) return <h1>Error; {error.message}</h1>
 
-  // random fn has been set up. Next, need to call it inside the return block to ensure it works. -DONE
-  // - add logic for figuring out the max position of the array
+  // want to use the select category to determine whether the item displayed is a character or dish.
+  // could p
+
+  // function handleGetCategoryItem() {
+  //   selectCategory()
+  //   getNewDishes()
+  // }
 
   function handleGetCategoryItem() {
     selectCategory()
+    // getNewDishes()
     switch (category) {
       case 'characters':
-        getNewDishes()
+        setItems(dishes)
         console.log('characters!!!')
         break
       default:
@@ -44,19 +52,17 @@ export default function RandomDish() {
   }
 
   if (dishes) {
-    // console.log(dishes[0])
-    // console.log(dishes[1])
-    // console.log(category)
     return (
       <div>
         <p>-----------------</p>
         <h2>Random Dish Component</h2>
         <button onClick={handleGetCategoryItem}>get random Dish</button>
+        <img src={dishes[0].img} alt="guess-the-film" />
         <p>film 1: {dishes[0].film}</p>
-        <p>dish 1: {dishes[0].name}</p>
+        {/* <p>dish 1: {dishes[0].name}</p> */}
 
         <p>film 2: {dishes[1].film}</p>
-        <p>dish 2: {dishes[1].name}</p>
+        {/* <p>dish 2: {dishes[1].name}</p> */}
       </div>
     )
   }
