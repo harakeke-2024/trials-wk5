@@ -1,4 +1,4 @@
-import { CategoryWithFilm } from '../../../models/ghibli'
+import { CategoryWithFilm, Film } from '../../../models/ghibli'
 
 // - - - - RANDOM CATEGORY ITEM FNs - - - -
 
@@ -28,3 +28,16 @@ export function getRandomItem(array: CategoryWithFilm[]) {
 }
 
 // - - - - RANDOM FILM FNs - - - -
+
+export function randomIndex(min: number, max: number | undefined) {
+  if (!max) return null
+  const randomInteger = randomInt(min, max)
+  return randomInteger - 1
+}
+
+export function randomFilmFn(films: Film[] | undefined, i: number | null) {
+  if (!films) return null
+  if (!i) return null
+  const randomFilmGenerated = films[i]
+  return randomFilmGenerated
+}
