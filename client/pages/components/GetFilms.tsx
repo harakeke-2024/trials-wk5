@@ -36,19 +36,39 @@ export default function GetFilms({ film }: Props) {
 
   function getRandomFilm() {
     if (!films) return null
-    const randomId = randomInt(min, max)
+    const randomId = randomInt(min, max) - 1
     const randomFilm = films[randomId]
     return randomFilm
   }
 
   function renderRandomFilm() {
-    // const random = getRandomFilm()
-    while (random?.title === film) {
-      const randomFilm = getRandomFilm()
-      if (!randomFilm) return null
-      setRandom(randomFilm)
+    const randomFilm = getRandomFilm()
+    // want to compare random.title to film
+    // if they match, want to continue calling getRandomFilm()
+    while (randomFilm?.title === film) {
+      getRandomFilm()
+
+      if (randomFilm.title !== film) {
+        console.log('condition met')
+
+        setRandom(randomFilm)
+        break
+      }
     }
-    console.log(`random film rendered: ${random.title}`)
+    // if they don't, want to break/stop set random to this randomFilm using setRandom
+
+    // while (random?.title === film) {
+    //   console.log('loop running')
+    //   const randomFilm = getRandomFilm()
+    //   if (!randomFilm) {
+    //     console.log('random film not found')
+    //     return null
+    //   }
+
+    //   setRandom(randomFilm)
+    //   if (random?.title !== film) break
+    // }
+    // console.log(`random film rendered: ${random.title}`)
     return random
   }
 
