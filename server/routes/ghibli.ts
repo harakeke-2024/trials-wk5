@@ -64,4 +64,17 @@ router.get('/dishes/with-films', async (req, res) => {
   }
 })
 
+// dishes and films joined
+
+router.get('/two-dishes', async (req, res) => {
+  try {
+    const dishes = await dbb.getTwoDishes()
+
+    res.json(dishes)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
 export default router
