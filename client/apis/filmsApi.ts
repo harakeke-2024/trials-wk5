@@ -110,3 +110,12 @@ export async function dishesWithFilms(): Promise<CategoryWithFilm[] | void> {
     console.error(e)
   }
 }
+
+export async function dishesDiffFilms(): Promise<CategoryWithFilm[] | void> {
+  try {
+    const res = await request.get(rootUrl + '/two-dishes')
+    return res.body
+  } catch (e) {
+    console.error(e)
+  }
+}
