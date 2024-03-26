@@ -1,15 +1,14 @@
 import { useQuery } from '@tanstack/react-query'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Film } from '../../../models/ghibli'
 import { getFilm, getFilms } from '../../apis/filmsApi'
 import { randomFilmFn, randomIndex, randomInt } from './randomFunctions'
 
 interface Props {
   film: string
-  id: number
 }
 
-export default function FilmsDisplay({ film, id }: Props) {
+export default function FilmsDisplay({ film }: Props) {
   // const [randomFilm, setRandomFilm] = useState<
   //   Film | Record<string, never> | null | undefined
   // >({})
@@ -18,25 +17,29 @@ export default function FilmsDisplay({ film, id }: Props) {
   // const randomId = randomInt(min, max)
 
   const initialState = randomInt(min, max)
-  // const [randomId, setRandomId] = useState(initialState)
+  const [randomId, setRandomId] = useState(initialState)
 
   const {
-    data: randoFilm,
+    data: randomFilm,
     isLoading,
     isError,
     error,
+    refetch,
   } = useQuery({
-    queryKey: ['film', initialState],
-    queryFn: () => getFilm(initialState),
+    queryKey: ['film', randomId, film],
+    queryFn: () => getFilm(randomId),
   })
 
-  // const [randomFilm, setRandomFilm] = useState(randoFilm)
+  // const [randomFilm, setRandomFilm] = useState(randomFilm)
 
-  function checkUniqueFilm() {
-    while (randoFilm?.title === film) {
-      const newId = randomInt(min, max)
-    }
+  function fetchNewFilm() {
+    const newId = randomInt(min, max)
+    setRandomId(newId)
   }
+
+  useEffect(() => {
+    refetch()
+  }, [randomId, refetch, film])
 
   if (isLoading) return <h1>Loading randomId...</h1>
 
@@ -45,15 +48,18 @@ export default function FilmsDisplay({ film, id }: Props) {
   // const randomI = randomIndex(min, max)
   // const randomFilmmmm = randomFilmFn(films, randomI)
 
-  if (randoFilm) {
+  if (randomFilm && randomFilm.title !== film) {
     return (
       <>
         <p>film prop (correct film): {film}</p>
-        {/* <p>first film in array: {randoFilm.title}</p> */}
+        {/* <p>first film in array: {randomFilm.title}</p> */}
         <p>random ID from fn (1-8): {randomId}</p>
-        <p>random ID from query call (1-8): {randoFilm.id}</p>
-        <p>random film using index position: {randoFilm.title}</p>
+        <p>random ID from query call (1-8): {randomFilm.id}</p>
+        <p>random film using index position: {randomFilm.title}</p>
       </>
     )
+  } else {
+    fetchNewFilm()
+    return <h1>Fetching new random film...</h1>
   }
 }
