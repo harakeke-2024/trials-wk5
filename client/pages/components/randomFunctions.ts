@@ -2,7 +2,7 @@ import { CategoryWithFilm } from '../../../models/ghibli'
 
 // - - - - RANDOM CATEGORY ITEM FNs - - - -
 
-// used just to get random number
+// used just to get random number - inclusive of max and min
 export function randomInt(min: number, max: number): number {
   const random = Math.floor(Math.random() * max + min)
   console.log(`random Int: ${random}`)
