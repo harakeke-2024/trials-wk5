@@ -7,6 +7,10 @@ export async function getAllFilms(): Promise<Film[]> {
   return await db('films').select()
 }
 
+export async function getFilmById(id: number): Promise<Film[]> {
+  return await db('films').select().where('id', id)
+}
+
 // dishes fns
 
 export async function getAllDishes(): Promise<Dish[]> {
