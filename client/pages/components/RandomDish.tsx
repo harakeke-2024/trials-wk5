@@ -1,17 +1,7 @@
-import { useQuery } from '@tanstack/react-query'
-import { dishesDiffFilms } from '../../apis/filmsApi'
-import { useState } from 'react'
-// import RandomDisplay from './RandomDisplay'
-import { CategoryWithFilm, Film } from '../../../models/ghibli'
-import { getRandomItem } from './randomFunctions'
+import useRandomDishes from '../../hooks/useRandomDishes'
 
 export default function RandomDish() {
-  const {
-    data: dishes,
-    isLoading,
-    isError,
-    error,
-  } = useQuery({ queryKey: ['dishes'], queryFn: dishesDiffFilms })
+  const { data: dishes, isError, isLoading, error } = useRandomDishes()
 
   if (isLoading) return <h1>Loading...</h1>
 
