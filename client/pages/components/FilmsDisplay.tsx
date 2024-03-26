@@ -13,7 +13,7 @@ export default function FilmsDisplay({ film, id }: Props) {
     isError,
     error,
   } = useQuery({
-    queryKey: ['random-film', film, id],
+    queryKey: ['random-film', id],
     queryFn: () => differentFilm(id),
   })
 
@@ -21,6 +21,9 @@ export default function FilmsDisplay({ film, id }: Props) {
 
   if (isError) return <h1>Error; {error.message}</h1>
 
+  console.log('random film below')
+  console.log(randomFilm)
+  console.log('--------------------end------------------------')
   if (randomFilm) {
     return (
       <>
