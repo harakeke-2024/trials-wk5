@@ -13,11 +13,12 @@ export default function FilmsDisplay({ film, id }: Props) {
   // const [randomFilm, setRandomFilm] = useState<
   //   Film | Record<string, never> | null | undefined
   // >({})
-
   const min = 1
   const max = 8
+  // const randomId = randomInt(min, max)
 
-  const randomId = randomInt(min, max)
+  const initialState = randomInt(min, max)
+  // const [randomId, setRandomId] = useState(initialState)
 
   const {
     data: randoFilm,
@@ -25,9 +26,17 @@ export default function FilmsDisplay({ film, id }: Props) {
     isError,
     error,
   } = useQuery({
-    queryKey: ['film', randomId],
-    queryFn: () => getFilm(randomId),
+    queryKey: ['film', initialState],
+    queryFn: () => getFilm(initialState),
   })
+
+  // const [randomFilm, setRandomFilm] = useState(randoFilm)
+
+  function checkUniqueFilm() {
+    while (randoFilm?.title === film) {
+      const newId = randomInt(min, max)
+    }
+  }
 
   if (isLoading) return <h1>Loading randomId...</h1>
 
