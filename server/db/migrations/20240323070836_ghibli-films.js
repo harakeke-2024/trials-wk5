@@ -4,7 +4,7 @@
  */
 export function up(knex) {
   return knex.schema.createTable('films', (table) => {
-    table.increments('id').primary()
+    table.integer('id').primary()
     table.string('title')
     table.string('release_year')
     table.string('banner_url')

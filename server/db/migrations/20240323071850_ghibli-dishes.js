@@ -4,7 +4,7 @@
  */
 export function up(knex) {
   return knex.schema.createTable('dishes', (table) => {
-    table.increments('id').primary()
+    table.integer('id').primary()
     table.integer('film_id').references('films.id').onDelete('CASCADE')
     table.string('name')
     table.string('image_url')

@@ -4,8 +4,7 @@ import {
   Dish,
   Character,
   CharacterData,
-  CharWithFilm,
-  DishWithFilm,
+  CategoryWithFilm,
 } from '../../models/ghibli'
 
 const rootUrl = '/api/v1/ghibli'
@@ -13,6 +12,24 @@ const rootUrl = '/api/v1/ghibli'
 export async function getFilms(): Promise<Film[] | undefined> {
   try {
     const res = await request.get(rootUrl + '/films')
+    return res.body
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+export async function getFilm(id: number): Promise<Film | undefined> {
+  try {
+    const res = await request.get(rootUrl + `/films/${id}`)
+    return res.body
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+export async function differentFilm(id: number): Promise<Film | undefined> {
+  try {
+    const res = await request.get(rootUrl + `/films/diff-film/${id}`)
     return res.body
   } catch (e) {
     console.error(e)
@@ -63,7 +80,9 @@ export async function editChar(data: Character) {
   }
 }
 
-export async function charsWithFilms(): Promise<CharWithFilm[] | undefined> {
+export async function charsWithFilms(): Promise<
+  CategoryWithFilm[] | undefined
+> {
   try {
     const res = await request.get(rootUrl + '/characters/with-films')
     return res.body
@@ -83,7 +102,7 @@ export async function deleteCharacter(
   }
 }
 
-export async function dishesWithFilms(): Promise<DishWithFilm[] | void> {
+export async function dishesWithFilms(): Promise<CategoryWithFilm[] | void> {
   try {
     const res = await request.get(rootUrl + '/dishes/with-films')
     return res.body

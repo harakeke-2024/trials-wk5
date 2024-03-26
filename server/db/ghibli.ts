@@ -7,6 +7,14 @@ export async function getAllFilms(): Promise<Film[]> {
   return await db('films').select()
 }
 
+export async function getFilmById(id: number): Promise<Film[]> {
+  return await db('films').select().where('id', id).first()
+}
+
+export async function getDiffFilm(id: number): Promise<Film> {
+  return await db('films').where('id', '!=', id).orderByRaw('RANDOM()').first()
+}
+
 // dishes fns
 
 export async function getAllDishes(): Promise<Dish[]> {
@@ -37,6 +45,7 @@ export async function getCharsWithFilms(): Promise<Character[]> {
     .select(
       'characters.id as id',
       'characters.name as name',
+      'characters.description as description',
       'characters.image_url as img',
       'films.title as film',
       'films.original_title as originalTitle',

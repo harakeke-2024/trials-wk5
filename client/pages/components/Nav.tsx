@@ -5,6 +5,8 @@ export default function Nav() {
     <>
       <header>{/* <h1>Fullstack Boilerplate - with Fruits!</h1> */}</header>
       <main>
+        <Link to={'/'}>Home</Link>
+        <br />
         <Link to={'films'}>Films</Link>
         <br />
         <Link to={'dishes'}>Dishes</Link>

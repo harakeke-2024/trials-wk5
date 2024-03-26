@@ -1,9 +1,4 @@
-import {
-  useQuery,
-  // useMutation,
-  // useQueryClient,
-  // MutationFunction,
-} from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { getFilms } from '../apis/filmsApi.ts'
 
 export default function Films() {

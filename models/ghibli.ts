@@ -27,19 +27,10 @@ export interface Character extends CharacterData {
   id: number
 }
 
-export interface DishWithFilm {
+export interface CategoryWithFilm {
   id: number
   name: string
   description: string
-  img: string
-  film: string
-  filmId: number
-  year: string
-}
-
-export interface CharWithFilm {
-  id: number
-  name: string
   img: string
   film: string
   originalTitle: string

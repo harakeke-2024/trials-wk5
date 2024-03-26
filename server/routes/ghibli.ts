@@ -17,6 +17,30 @@ router.get('/films', async (req, res) => {
   }
 })
 
+router.get('/films/:id', async (req, res) => {
+  try {
+    const filmId = Number(req.params.id)
+    const film = await db.getFilmById(filmId)
+
+    res.json(film)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
+router.get('/films/diff-film/:id', async (req, res) => {
+  try {
+    const filmId = Number(req.params.id)
+    const film = await db.getDiffFilm(filmId)
+
+    res.json(film)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
 // dishes
 router.get('/dishes', async (req, res) => {
   try {

@@ -32,7 +32,7 @@ export async function seed(knex) {
     },
     {
       id: 4,
-      film_id: 3,
+      film_id: 5,
       name: 'Chocolate Cake',
       image_url: 'https://www.ghibli.jp/gallery/majo043.jpg',
       original_name: 'チョコレートケーキ',
@@ -40,7 +40,7 @@ export async function seed(knex) {
     },
     {
       id: 5,
-      film_id: 1,
+      film_id: 6,
       name: 'Nabeyaki Udon',
       image_url: 'https://www.ghibli.jp/gallery/mimi043.jpg',
       original_name: '鍋焼きうどん',
@@ -48,7 +48,7 @@ export async function seed(knex) {
     },
     {
       id: 6,
-      film_id: 1,
+      film_id: 8,
       name: 'Siberia',
       image_url: 'https://www.ghibli.jp/gallery/kazetachinu015.jpg',
       original_name: 'シベリア',
@@ -65,7 +65,7 @@ export async function seed(knex) {
     {
       id: 8,
       film_id: 4,
-      name: 'Konpeito Cnady',
+      name: 'Konpeito Candy',
       image_url: 'https://www.ghibli.jp/gallery/chihiro014.jpg',
       original_name: 'コンペイトー',
       description: 'コンペイトー',
