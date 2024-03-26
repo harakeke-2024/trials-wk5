@@ -32,43 +32,56 @@ export default function GetFilms({ film }: Props) {
   if (isError) return <h1>Error; {error.message}</h1>
 
   const min = 1
-  const max = 5
+  const max = 8
 
   function getRandomFilm() {
     if (!films) return null
-    const randomId = randomInt(min, max) - 1
+    const randomId = randomInt(min, max)
     const randomFilm = films[randomId]
+    console.log(`random film: ${randomFilm.title}`)
+    console.log(`random id: ${randomId}`)
     return randomFilm
   }
 
+  // function renderRandomFilm() {
+  //   const randomFilm = getRandomFilm()
+  //   // want to compare random.title to film
+  //   // if they match, want to continue calling getRandomFilm()
+  //   while (randomFilm?.title === film) {
+  //     getRandomFilm()
+
+  //     if (randomFilm.title !== film) {
+  //       console.log('condition met')
+
+  //       setRandom(randomFilm)
+  //       break
+  //     }
+  //   }
+  // if they don't, want to break/stop set random to this randomFilm using setRandom
+
+  // while (random?.title === film) {
+  //   console.log('loop running')
+  //   const randomFilm = getRandomFilm()
+  //   if (!randomFilm) {
+  //     console.log('random film not found')
+  //     return null
+  //   }
+
+  //   setRandom(randomFilm)
+  //   if (random?.title !== film) break
+  // }
+  // console.log(`random film rendered: ${random.title}`)
+  //   return random
+  // }
+
   function renderRandomFilm() {
-    const randomFilm = getRandomFilm()
-    // want to compare random.title to film
-    // if they match, want to continue calling getRandomFilm()
-    while (randomFilm?.title === film) {
-      getRandomFilm()
-
-      if (randomFilm.title !== film) {
-        console.log('condition met')
-
-        setRandom(randomFilm)
-        break
-      }
+    // const random = getRandomFilm()
+    while (random?.title === film) {
+      const randomFilm = getRandomFilm()
+      if (!randomFilm) return null
+      setRandom(randomFilm)
     }
-    // if they don't, want to break/stop set random to this randomFilm using setRandom
-
-    // while (random?.title === film) {
-    //   console.log('loop running')
-    //   const randomFilm = getRandomFilm()
-    //   if (!randomFilm) {
-    //     console.log('random film not found')
-    //     return null
-    //   }
-
-    //   setRandom(randomFilm)
-    //   if (random?.title !== film) break
-    // }
-    // console.log(`random film rendered: ${random.title}`)
+    console.log(`random film rendered: ${random.title}`)
     return random
   }
 
