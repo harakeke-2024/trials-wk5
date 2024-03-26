@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
-import { dishesWithFilms } from '../../apis/filmsApi'
+import { dishesDiffFilms } from '../../apis/filmsApi'
 import { useState } from 'react'
-import RandomDisplay from './RandomDisplay'
+// import RandomDisplay from './RandomDisplay'
 import { CategoryWithFilm, Film } from '../../../models/ghibli'
 import { getRandomItem } from './randomFunctions'
 
@@ -11,16 +11,7 @@ export default function RandomDish() {
     isLoading,
     isError,
     error,
-  } = useQuery({ queryKey: ['dishes'], queryFn: dishesWithFilms })
-
-  const [randomFilm, setRandomFilm] = useState<
-    Film | Record<string, never> | null | undefined
-  >({})
-
-  // Record<string, never> was suggested by TS
-  const [randomDish, setRandomDish] = useState<
-    CategoryWithFilm | Record<string, never> | null | undefined
-  >({})
+  } = useQuery({ queryKey: ['dishes'], queryFn: dishesDiffFilms })
 
   if (isLoading) return <h1>Loading...</h1>
 
@@ -29,25 +20,21 @@ export default function RandomDish() {
   // random fn has been set up. Next, need to call it inside the return block to ensure it works. -DONE
   // - add logic for figuring out the max position of the array
 
-  function handleGetCategoryItem() {
-    if (!dishes || dishes.length === 0) {
-      return null
-    }
-    const dish = getRandomItem(dishes)
-    // console.log(`dish: ${dish.name}`)
-    setRandomDish(dish)
-  }
+  function handleGetCategoryItem() {}
 
-  if (dishes && randomDish) {
+  if (dishes) {
+    console.log(dishes[0])
+    console.log(dishes[1])
     return (
       <div>
         <p>-----------------</p>
         <h2>Random Dish Component</h2>
         <button onClick={handleGetCategoryItem}>get random Dish</button>
-        <p>random dish: {randomDish.name}</p>
-        <p>-----------------</p>
-        <p>{randomFilm?.title}</p>
-        <RandomDisplay dish={randomDish} />
+        <p>film 1: {dishes[0].film}</p>
+        <p>dish 1: {dishes[0].name}</p>
+
+        <p>film 2: {dishes[1].film}</p>
+        <p>dish 2: {dishes[1].name}</p>
       </div>
     )
   }
