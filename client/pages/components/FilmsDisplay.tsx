@@ -32,7 +32,15 @@ export default function FilmsDisplay({ film }: Props) {
     return randomInteger - 1
   }
 
+  function randomFilmFn(i) {
+    // const i = randomIndex(min, max)
+    if (!films) return null
+    const randomFilmGenerated = films[i]
+    return randomFilmGenerated
+  }
+
   const randomI = randomIndex(min, max)
+  const randomFilmmmm = randomFilmFn(randomI)
 
   if (films) {
     return (
@@ -40,6 +48,8 @@ export default function FilmsDisplay({ film }: Props) {
         <p>film prop (correct film): {film}</p>
         <p>random (incorrect film - hardcoded for now): {films[3].title}</p>
         <p>random index position (0-7): {randomI}</p>
+        <p>random film index position: {randomFilmmmm?.id}</p>
+        <p>random film using index position: {randomFilmmmm?.title}</p>
       </>
     )
   }
