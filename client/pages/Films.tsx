@@ -1,13 +1,7 @@
-import { useQuery } from '@tanstack/react-query'
-import { getFilms } from '../apis/filmsApi.ts'
+import useFilmData from '../hooks/useFilmData.ts'
 
 export default function Films() {
-  const {
-    data: films,
-    isLoading,
-    isError,
-    error,
-  } = useQuery({ queryKey: ['films'], queryFn: getFilms })
+  const { data: films, isError, isLoading, error } = useFilmData()
 
   if (isLoading) return <h1>Loading...</h1>
 
