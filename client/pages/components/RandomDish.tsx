@@ -4,7 +4,7 @@ import { useState } from 'react'
 import RandomDisplay from './RandomDisplay'
 import { CategoryWithFilm, Film } from '../../../models/ghibli'
 import { getRandomItem } from './randomFunctions'
-import GetFilm from './GetFilm'
+// import GetFilm from './GetFilm'
 
 export default function RandomDish() {
   const {

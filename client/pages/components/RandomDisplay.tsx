@@ -19,6 +19,7 @@ export default function RandomDisplay({ dish }: Props) {
         <img src={dish.img} alt={dish.name} />
         <p>POSSIBLE FILM ANSWERS COMPONENT</p>
         <FilmsDisplay film={dish.film} id={dish.filmId} />
+        {/* <FilmsDisplay film={dish.film} /> */}
 
         {/* <GetFilms film={dish.film} /> */}
       </>
