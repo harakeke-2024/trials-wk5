@@ -6,7 +6,6 @@ import { CategoryWithFilm } from '../../../models/ghibli'
 
 export default function RandomItems() {
   const [category, setCategory] = useState('')
-  // dishes instead of cat - boolean
   const [counter, setCounter] = useState(0)
   const [items, setItems] = useState<CategoryWithFilm[]>([])
 
@@ -26,9 +25,6 @@ export default function RandomItems() {
 
   if (isError) return <h1>Error; {error.message}</h1>
 
-  // want to use the select category to determine whether the item displayed is a character or dish.
-  // could p
-
   function handleGetCategoryItem(
     dishesArr: CategoryWithFilm[],
     charsArr: CategoryWithFilm[],
@@ -45,15 +41,11 @@ export default function RandomItems() {
     }
     // invalidate query key if we have used the current items in the items state variable
     if (counter % 2) {
-      getNewItems()
+      queryClient.invalidateQueries({ queryKey: ['categories'] })
       console.log('query invalidated')
     }
 
     selectCategory()
-  }
-
-  function getNewItems() {
-    queryClient.invalidateQueries({ queryKey: ['categories'] })
   }
 
   function startGame(
@@ -62,8 +54,6 @@ export default function RandomItems() {
   ): void {
     handleGetCategoryItem(dishesArr, charsArr)
   }
-
-  console.log(items)
 
   if (data) {
     const { dishes, chars } = data
@@ -91,34 +81,7 @@ export default function RandomItems() {
         ) : (
           <button onClick={() => startGame(dishes, chars)}>Start Game</button>
         )}
-        {/* <img src={items[0].img} alt="guess-the-film" />
-
-        <p>film 1: {items[0].film}</p>
-        <p>item 1: {items[0].name}</p>
-
-        <p>film 2: {items[1].film}</p>
-        <p>item 2: {items[1].name}</p> */}
       </div>
     )
   }
 }
-
-// {
-/* <h3>Dishes</h3>
-        <img src={dishes[0].img} alt="guess-the-film" />
-
-        <p>film 1: {dishes[0].film}</p>
-        <p>dish 1: {dishes[0].name}</p>
-
-        <p>film 2: {dishes[1].film}</p>
-        <p>dish 2: {dishes[1].name}</p>
-
-        <h3>Chars</h3>
-        <img src={chars[0].img} alt="guess-the-film" />
-
-        <p>film 1: {chars[0].film}</p>
-        <p>character 1: {chars[0].name}</p>
-
-        <p>film 2: {chars[1].film}</p>
-        <p>character 2: {chars[1].name}</p> */
-// }
