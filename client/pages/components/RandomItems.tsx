@@ -19,7 +19,7 @@ export default function RandomItems() {
   }
 
   const queryClient = useQueryClient()
-  const { data: itemss, isError, isLoading, error } = useCategoryItems()
+  const { data, isError, isLoading, error } = useCategoryItems()
 
   if (isLoading) return <h1>Loading...</h1>
 
@@ -51,20 +51,32 @@ export default function RandomItems() {
     queryClient.invalidateQueries({ queryKey: ['random'] })
   }
 
-  console.log(itemss)
+  console.log(data)
 
-  if (itemss) {
+  if (data) {
+    const { dishes, chars } = data
     return (
       <div>
         <p>-----------------</p>
         <h2>Random ITEM Component</h2>
-        {/* <button onClick={handleGetCategoryItem}>get random Dish</button>
+        {/* <button onClick={handleGetCategoryItem}>get random Dish</button> */}
+        <h3>Dishes</h3>
         <img src={dishes[0].img} alt="guess-the-film" />
-        <p>film 1: {dishes[0].film}</p> */}
-        {/* <p>dish 1: {dishes[0].name}</p> */}
 
-        {/* <p>film 2: {dishes[1].film}</p> */}
-        {/* <p>dish 2: {dishes[1].name}</p> */}
+        <p>film 1: {dishes[0].film}</p>
+        <p>dish 1: {dishes[0].name}</p>
+
+        <p>film 2: {dishes[1].film}</p>
+        <p>dish 2: {dishes[1].name}</p>
+
+        <h3>Chars</h3>
+        <img src={chars[0].img} alt="guess-the-film" />
+
+        <p>film 1: {chars[0].film}</p>
+        <p>character 1: {chars[0].name}</p>
+
+        <p>film 2: {chars[1].film}</p>
+        <p>character 2: {chars[1].name}</p>
       </div>
     )
   }

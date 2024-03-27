@@ -37,3 +37,8 @@ export interface CategoryWithFilm {
   filmId: number
   year: string
 }
+
+export interface Data {
+  dishes: CategoryWithFilm[]
+  chars: CategoryWithFilm[]
+}

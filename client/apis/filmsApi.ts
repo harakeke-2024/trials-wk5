@@ -5,6 +5,7 @@ import {
   Character,
   CharacterData,
   CategoryWithFilm,
+  Data,
 } from '../../models/ghibli'
 
 const rootUrl = '/api/v1/ghibli'
@@ -122,14 +123,14 @@ export async function dishesDiffFilms() {
   }
 }
 
-export async function categoriesDiffFilms() {
+export async function categoriesDiffFilms(): Promise<Data | undefined> {
   try {
-    const [dishesRes, filmsRes] = await Promise.all([
+    const [dishesRes, charsRes] = await Promise.all([
       request.get(rootUrl + '/two-dishes'),
       request.get(rootUrl + '/characters/two-characters'),
     ])
 
-    const res = { dishes: dishesRes.body, films: filmsRes.body }
+    const res = { dishes: dishesRes.body, chars: charsRes.body }
 
     return res
   } catch (e) {
