@@ -5,6 +5,21 @@ html {
   font-weight: 400;
   font-style: normal;
   color: rgb(5, 97, 102);
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  font-family: 'Single Day', cursive, Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(5, 97, 102);
+}
+
+/* Ensure box-sizing includes padding and borders */
+* {
+  box-sizing: border-box;
 }
 
 img {
@@ -22,17 +37,25 @@ p {
   font-size: 1.5em;
 }
 
+header,
+footer,
+main {
+  width: 80%;
+  margin: 0 auto; /* Center align these elements */
+}
+
 /* header & nav styling */
 .head-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  padding: 1em;
-  font-family: unset;
+  /* padding: 0.3em; */
 }
 
 header img {
   width: 15em;
+  padding: 0.5em;
+  margin-left: 5em;
 }
 
 header h1 {
@@ -68,12 +91,35 @@ button {
 
 .game-btn {
   background-color: #235f61;
-  color: white;
-  border: none;
-  border-radius: 15px;
   box-shadow: 3px 3px rgb(161, 174, 174);
-  padding: 5px 15px;
-  min-height: 2.5em;
-  min-width: 4em;
-  font-size: 1em;
+}
+
+/* reactive */
+
+@media (max-width: 600px) {
+  p {
+    font-family: 'Noteworthy', 'Arial Narrow', Arial, sans-serif;
+    font-size: 0.8em;
+  }
+  nav {
+    float: center;
+  }
+  h1,
+  header h1 {
+    font-size: 1.5em;
+  }
+  header img {
+    width: 10em;
+  }
+  h2 {
+    font-size: 1em;
+  }
+  img {
+    max-width: 20em;
+  }
+  header,
+  main,
+  footer {
+    width: 80%;
+  }
 }

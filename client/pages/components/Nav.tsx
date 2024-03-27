@@ -15,7 +15,6 @@ export default function Nav() {
         <Link to={'character/add'}>Add Your Favourite Character</Link>
         <br />
       </nav>
-      <footer></footer>
     </>
   )
 }
