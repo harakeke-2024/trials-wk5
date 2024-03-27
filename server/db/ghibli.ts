@@ -21,12 +21,6 @@ export async function getDiffFilm(id: number): Promise<Film> {
   return await db('films').where('id', '!=', id).orderByRaw('RANDOM()').first()
 }
 
-// dishes fns
-
-export async function getAllDishes(): Promise<Dish[]> {
-  return await db('dishes').select()
-}
-
 // character fns
 
 export async function getAllChars(): Promise<Character[]> {

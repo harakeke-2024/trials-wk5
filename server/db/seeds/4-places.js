@@ -11,7 +11,7 @@ export async function seed(knex) {
       film_id: 1,
       name: "Howl's Moving Castle",
       image_url: 'https://www.ghibli.jp/gallery/howl049.jpg',
-      original_name: 'under construction',
+      original_name: 'ハウルの動く城',
       description:
         "Wizard Howl's home. It moves around the wasteland with four bird-like legs. To the naked eye, it appears more like a collection of junk and a living creature than a traditional 'castle'. Few know the precise location of the castle, but eyewitnesses claim to have seen it pass by several towns from time to time. The fire demon Calcifer supplies all the energy to the castle, which supports its basic functions such as walking, lighting, cooking and bathing.",
     },

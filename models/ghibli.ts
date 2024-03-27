@@ -42,3 +42,12 @@ export interface Data {
   dishes: CategoryWithFilm[]
   chars: CategoryWithFilm[]
 }
+
+export interface Category {
+  id: number
+  film_id: number
+  name: string
+  image_url: string
+  original_name: string
+  description: string
+}
