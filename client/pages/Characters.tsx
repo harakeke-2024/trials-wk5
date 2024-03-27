@@ -25,6 +25,9 @@ export default function Characters() {
     return (
       <>
         <h1>Ghibli Characters</h1>
+        <br />
+        <Link to={'/add-character'}>Add Your Favourite Character</Link>
+        <br />
         <ul>
           {characters.map((char, index) => (
             <li key={index}>

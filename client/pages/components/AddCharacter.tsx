@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { addNewChar } from '../apis/filmsApi.ts'
+import { addNewChar } from '../../apis/filmsApi.ts'
 import { useState } from 'react'
 
 export default function AddCharacter() {

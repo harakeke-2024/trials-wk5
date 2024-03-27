@@ -4,7 +4,7 @@ import Films from './pages/Films.tsx'
 import Home from './pages/Home.tsx'
 import Dishes from './pages/Dishes.tsx'
 import Characters from './pages/Characters.tsx'
-import AddCharacter from './pages/AddCharacter.tsx'
+import AddCharacter from './pages/components/AddCharacter.tsx'
 import EditCharacter from './pages/EditCharacter.tsx'
 // import RandomChars from './pages/components/RandomChars.tsx'
 // import RandomDish from './pages/components/RandomDish.tsx'
@@ -17,7 +17,7 @@ export default createRoutesFromElements(
     <Route path="dishes" element={<Dishes />} />
     <Route path="game" element={<RandomItems />} />
     <Route path="characters" element={<Characters />} />
-    <Route path="character/add" element={<AddCharacter />} />
+    <Route path="add-character" element={<AddCharacter />} />
     <Route path="characters/:id/edit" element={<EditCharacter />} />
     <Route path="places" element={<Places />} />
   </Route>,
