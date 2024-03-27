@@ -6,6 +6,7 @@ import {
   CharacterData,
   CategoryWithFilm,
   Data,
+  Category,
 } from '../../models/ghibli'
 
 const rootUrl = '/api/v1/ghibli'
@@ -133,6 +134,15 @@ export async function categoriesDiffFilms(): Promise<Data | undefined> {
     const res = { dishes: dishesRes.body, chars: charsRes.body }
 
     return res
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+export async function getPlaces(): Promise<Category[] | undefined> {
+  try {
+    const res = await request.get(rootUrl + '/places')
+    return res.body
   } catch (e) {
     console.error(e)
   }
