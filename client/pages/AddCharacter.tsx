@@ -59,13 +59,6 @@ export default function AddCharacter() {
           id="char-img"
           placeholder="Character Image Link"
         />
-        <label htmlFor="img-alt">Image Alternate Text: </label>
-        <input
-          type="text"
-          name="img-alt"
-          id="img-alt"
-          placeholder="Image Alternate Text"
-        />
         <button type="submit">Add Character</button>
       </form>
     </>
