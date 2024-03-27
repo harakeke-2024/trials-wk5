@@ -6,14 +6,16 @@ import { CategoryWithFilm } from '../../../models/ghibli'
 
 export default function RandomItems() {
   const [category, setCategory] = useState('')
-  const [counter, setCounter] = useState(0)
+  const [counter, setCounter] = useState(1)
   const [items, setItems] = useState<CategoryWithFilm[]>([])
 
   function selectCategory() {
-    if (counter % 2 === 0) {
-      setCategory('dishes')
-    } else if (counter % 2 === 1) {
+    if (counter % 3 === 0) {
+      setCategory('places')
+    } else if (counter % 3 === 2) {
       setCategory('characters')
+    } else if (counter % 3 === 1) {
+      setCategory('dishes')
     }
     setCounter((prevCounter) => prevCounter + 1)
   }
@@ -34,15 +36,20 @@ export default function RandomItems() {
       case 'characters':
         setItems(charsArr)
         console.log('characters!!!')
-        console.log(placesArr)
+        console.log(counter)
+        break
+      case 'dishes':
+        setItems(dishesArr)
+        console.log('actually dishes!')
+        console.log(counter)
         break
       default:
-        setItems(dishesArr)
-        // getNewDishes()
-        console.log('actually dishes!')
+        setItems(placesArr)
+        console.log('places!!!')
+        console.log(counter)
     }
     // invalidate query key if we have used the current items in the items state variable
-    if (counter % 2) {
+    if (counter % 3 === 0) {
       queryClient.invalidateQueries({ queryKey: ['categories'] })
       console.log('query invalidated')
     }
