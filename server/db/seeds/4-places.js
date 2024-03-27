@@ -76,7 +76,7 @@ export async function seed(knex) {
       image_url: 'https://www.ghibli.jp/gallery/chihiro043.jpg',
       original_name: '海の鉄道',
       description:
-        "No-Face and Chihiro take the train to Zeniba's faraway cottage at Swamp Bottom.",
+        "The Sea Railway is a mystical train that No-Face and Chihiro take to reach Zeniba's faraway cottage at Swamp Bottom. Its underwater journey through magical waters carries passengers on a surreal and unforgettable adventure.",
     },
   ])
 }
