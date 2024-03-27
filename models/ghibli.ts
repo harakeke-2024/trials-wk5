@@ -41,6 +41,7 @@ export interface CategoryWithFilm {
 export interface Data {
   dishes: CategoryWithFilm[]
   chars: CategoryWithFilm[]
+  places: CategoryWithFilm[]
 }
 
 export interface Category {

@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.get('/two-places', async (req, res) => {
+router.get('/two-random', async (req, res) => {
   try {
     const places = await db.getTwoPlaces()
 
