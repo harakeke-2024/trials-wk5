@@ -112,14 +112,26 @@ export async function dishesWithFilms(): Promise<CategoryWithFilm[] | void> {
   }
 }
 
-export async function dishesDiffFilms(): Promise<CategoryWithFilm[] | void> {
+export async function dishesDiffFilms() {
   try {
-    const dishes = await request.get(rootUrl + '/two-dishes')
+    const res = await request.get(rootUrl + '/two-dishes')
 
-    // const films = await request.get(rootUrl + '/two-dishes')
+    return res.body
+  } catch (e) {
+    console.error(e)
+  }
+}
 
-    // return dishes: dishes.body, films: films.body
-    return dishes.body
+export async function categoriesDiffFilms() {
+  try {
+    const [dishesRes, filmsRes] = await Promise.all([
+      request.get(rootUrl + '/two-dishes'),
+      request.get(rootUrl + '/characters/two-characters'),
+    ])
+
+    const res = { dishes: dishesRes.body, films: filmsRes.body }
+
+    return res
   } catch (e) {
     console.error(e)
   }

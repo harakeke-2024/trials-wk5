@@ -1,9 +1,9 @@
 import { useQueryClient } from '@tanstack/react-query'
-import useRandomDishes from '../../hooks/useRandomDishes'
 import { useState } from 'react'
+import useCategoryItems from '../../hooks/useCategoryItems'
 // import RandomChars from './components/RandomChars'
 
-export default function RandomDish() {
+export default function RandomItems() {
   const [category, setCategory] = useState('')
   // dishes instead of cat - boolean
   const [counter, setCounter] = useState(0)
@@ -19,7 +19,7 @@ export default function RandomDish() {
   }
 
   const queryClient = useQueryClient()
-  const { data: dishes, isError, isLoading, error } = useRandomDishes()
+  const { data: itemss, isError, isLoading, error } = useCategoryItems()
 
   if (isLoading) return <h1>Loading...</h1>
 
@@ -51,17 +51,19 @@ export default function RandomDish() {
     queryClient.invalidateQueries({ queryKey: ['random'] })
   }
 
-  if (dishes) {
+  console.log(itemss)
+
+  if (itemss) {
     return (
       <div>
         <p>-----------------</p>
-        <h2>Random Dish Component</h2>
-        <button onClick={handleGetCategoryItem}>get random Dish</button>
+        <h2>Random ITEM Component</h2>
+        {/* <button onClick={handleGetCategoryItem}>get random Dish</button>
         <img src={dishes[0].img} alt="guess-the-film" />
-        <p>film 1: {dishes[0].film}</p>
+        <p>film 1: {dishes[0].film}</p> */}
         {/* <p>dish 1: {dishes[0].name}</p> */}
 
-        <p>film 2: {dishes[1].film}</p>
+        {/* <p>film 2: {dishes[1].film}</p> */}
         {/* <p>dish 2: {dishes[1].name}</p> */}
       </div>
     )
