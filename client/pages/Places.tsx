@@ -10,6 +10,18 @@ export default function Places() {
   console.log(places)
 
   if (places) {
-    return <>Placesssss</>
+    return (
+      <>
+        <ul>
+          {places.map((place) => (
+            <li key={place.name}>
+              <h2>{place.name}</h2>
+              <img src={place.image_url} alt={place.name} />
+              <p>{place.description}</p>
+            </li>
+          ))}
+        </ul>
+      </>
+    )
   }
 }
