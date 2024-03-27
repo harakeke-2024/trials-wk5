@@ -17,4 +17,15 @@ router.get('/', async (req, res) => {
   }
 })
 
+router.get('/two-places', async (req, res) => {
+  try {
+    const places = await db.getTwoPlaces()
+
+    res.json(places)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
+
 export default router
