@@ -24,6 +24,7 @@ export default function Characters() {
   if (characters) {
     return (
       <>
+        <h1>Ghibli Characters</h1>
         <ul>
           {characters.map((char, index) => (
             <li key={index}>

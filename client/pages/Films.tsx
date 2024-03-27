@@ -10,6 +10,7 @@ export default function Films() {
   if (films) {
     return (
       <>
+        <h1>Ghibli Films</h1>
         <ul>
           {films.map((film, index) => (
             <li key={index}>

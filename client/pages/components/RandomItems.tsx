@@ -60,9 +60,6 @@ export default function RandomItems() {
 
     return (
       <div>
-        <p>-----------------</p>
-        <h2>Random ITEM Component</h2>
-
         {items.length > 0 ? (
           <div>
             <img src={items[0].img} alt="guess-the-film" />
@@ -74,12 +71,23 @@ export default function RandomItems() {
                 <p>Item 2: {items[1].name}</p>
               </>
             )}
-            <button onClick={() => handleGetCategoryItem(dishes, chars)}>
+            <button
+              className="game-btn"
+              onClick={() => handleGetCategoryItem(dishes, chars)}
+            >
               get random item
             </button>
           </div>
         ) : (
-          <button onClick={() => startGame(dishes, chars)}>Start Game</button>
+          <>
+            <h2>Let&apos;s play!</h2>
+            <button
+              className="game-btn"
+              onClick={() => startGame(dishes, chars)}
+            >
+              Start Game
+            </button>
+          </>
         )}
       </div>
     )

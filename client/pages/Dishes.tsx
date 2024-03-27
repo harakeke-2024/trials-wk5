@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { dishesWithFilms, getDishes } from '../apis/filmsApi.ts'
+import { dishesWithFilms } from '../apis/filmsApi.ts'
 
 export default function Dishes() {
   const {
@@ -16,6 +16,7 @@ export default function Dishes() {
   if (dishes) {
     return (
       <>
+        <h1>Ghibli Foods</h1>
         <ul>
           {dishes.map((dish, index) => (
             <li key={index}>

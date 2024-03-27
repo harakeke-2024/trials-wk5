@@ -3,10 +3,7 @@ import { Link } from 'react-router-dom'
 export default function Nav() {
   return (
     <>
-      <header>{/* <h1>Fullstack Boilerplate - with Fruits!</h1> */}</header>
-      <main>
-        <Link to={'/'}>Home</Link>
-        <br />
+      <nav>
         <Link to={'films'}>Films</Link>
         <br />
         <Link to={'dishes'}>Dishes</Link>
@@ -17,7 +14,7 @@ export default function Nav() {
         <br />
         <Link to={'character/add'}>Add Your Favourite Character</Link>
         <br />
-      </main>
+      </nav>
       <footer></footer>
     </>
   )
