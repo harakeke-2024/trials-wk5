@@ -1,12 +1,5 @@
 import request from 'superagent'
-import {
-  Film,
-  Dish,
-  Character,
-  CharacterData,
-  CategoryWithFilm,
-  Data,
-} from '../../models/ghibli'
+import { Data } from '../../models/ghibli'
 
 const rootUrl = '/api/v1/ghibli'
 

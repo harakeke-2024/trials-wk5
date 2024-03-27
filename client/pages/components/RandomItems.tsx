@@ -28,11 +28,13 @@ export default function RandomItems() {
   function handleGetCategoryItem(
     dishesArr: CategoryWithFilm[],
     charsArr: CategoryWithFilm[],
+    placesArr: CategoryWithFilm[],
   ) {
     switch (category) {
       case 'characters':
         setItems(charsArr)
         console.log('characters!!!')
+        console.log(placesArr)
         break
       default:
         setItems(dishesArr)
@@ -51,13 +53,14 @@ export default function RandomItems() {
   function startGame(
     dishesArr: CategoryWithFilm[],
     charsArr: CategoryWithFilm[],
+    placesArr: CategoryWithFilm[],
   ): void {
-    handleGetCategoryItem(dishesArr, charsArr)
+    handleGetCategoryItem(dishesArr, charsArr, placesArr)
   }
 
   if (data) {
-    const { dishes, chars } = data
-
+    const { dishes, chars, places } = data
+    // console.log(data)
     return (
       <div>
         {items.length > 0 ? (
@@ -73,7 +76,7 @@ export default function RandomItems() {
             )}
             <button
               className="game-btn"
-              onClick={() => handleGetCategoryItem(dishes, chars)}
+              onClick={() => handleGetCategoryItem(dishes, chars, places)}
             >
               get random item
             </button>
@@ -83,7 +86,7 @@ export default function RandomItems() {
             <h2>Let&apos;s play!</h2>
             <button
               className="game-btn"
-              onClick={() => startGame(dishes, chars)}
+              onClick={() => startGame(dishes, chars, places)}
             >
               Start Game
             </button>
