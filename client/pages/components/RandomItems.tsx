@@ -44,7 +44,10 @@ export default function RandomItems() {
         console.log('actually dishes!')
     }
     // invalidate query key if we have used the current items in the items state variable
-    if (counter % 2) getNewItems()
+    if (counter % 2) {
+      getNewItems()
+      console.log('query invalidated')
+    }
 
     selectCategory()
   }
