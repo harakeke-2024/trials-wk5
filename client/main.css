@@ -54,11 +54,12 @@ ol {
 /* buttons styling */
 
 button {
-  background-color: rgb(36, 159, 165);
-  color: white;
+  /* background-color: #249fa5 */
+  background-color: #225c5e;
+  color: #ffffff;
   border: none;
   border-radius: 15px;
-  box-shadow: 3px 3px rgb(161, 174, 174);
+  box-shadow: 3px 3px #a1aeae;
   padding: 5px 15px;
   min-height: 2.5em;
   min-width: 4em;
@@ -66,7 +67,7 @@ button {
 }
 
 .game-btn {
-  background-color: rgb(16, 186, 189);
+  background-color: #235f61;
   color: white;
   border: none;
   border-radius: 15px;
