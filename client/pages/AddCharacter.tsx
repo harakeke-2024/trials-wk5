@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { addNewChar } from '../../apis/filmsApi.ts'
+import { addNewChar } from '../apis/filmsApi.ts'
 import { useState } from 'react'
-import useFilmData from '../../hooks/useFilmData.ts'
+import useFilmData from '../hooks/useFilmData.ts'
 import { useNavigate } from 'react-router-dom'
 
 export default function AddCharacter() {
