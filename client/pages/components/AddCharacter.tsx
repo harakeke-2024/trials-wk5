@@ -55,6 +55,7 @@ export default function AddCharacter() {
             type="text"
             name="char-name"
             id="char-name"
+            value={char.name}
             placeholder="Character Name"
           />
 
@@ -65,6 +66,9 @@ export default function AddCharacter() {
             onChange={handleFilmChange}
             value={char.film_id}
           >
+            <option value="" disabled selected>
+              Select a film
+            </option>
             {films.data?.map((film) => (
               <option key={film.id} value={film.id}>
                 {film.title}
@@ -78,6 +82,7 @@ export default function AddCharacter() {
             type="text"
             name="char-img"
             id="char-img"
+            value={char.image_url}
             placeholder="Character Image Link"
           />
           <button type="submit">
