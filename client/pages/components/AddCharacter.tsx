@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 export default function AddCharacter() {
   const queryClient = useQueryClient()
   const films = useFilmData()
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const [char, setChar] = useState({
     name: '',
@@ -24,6 +24,7 @@ export default function AddCharacter() {
         film_id: 0,
         image_url: '',
       })
+      navigate('/characters')
     },
   })
 
