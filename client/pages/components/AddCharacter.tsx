@@ -33,6 +33,13 @@ export default function AddCharacter() {
     mutation.mutate(char)
   }
 
+  const handleFilmChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
+    setChar((prevChar) => ({
+      ...prevChar,
+      film_id: Number(e.target.value),
+    }))
+  }
+
   if (films.isLoading) <p>Loading film data...</p>
 
   if (films.isError) <p>Failed to load film data</p>
@@ -55,9 +62,7 @@ export default function AddCharacter() {
           <select
             id="film-id"
             name="film-id"
-            onChange={(e) =>
-              setChar({ ...char, film_id: Number(e.target.value) })
-            }
+            onChange={handleFilmChange}
             value={char.film_id}
           >
             {films.data?.map((film) => (
