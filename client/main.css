@@ -41,7 +41,7 @@ p {
 header,
 footer,
 main {
-  width: 92%;
+  width: 70%;
   margin: 0 auto; /* Center align these elements */
 }
 
@@ -92,7 +92,7 @@ button {
 
 /* reactive */
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   p {
     font-family: 'Noteworthy', 'Arial Narrow', Arial, sans-serif;
     font-size: 0.8em;
@@ -112,5 +112,10 @@ button {
   }
   img {
     max-width: 20em;
+  }
+  header,
+  footer,
+  main {
+    width: 92%;
   }
 }
