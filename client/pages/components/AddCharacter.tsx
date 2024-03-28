@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 export default function AddCharacter() {
   const queryClient = useQueryClient()
   const films = useFilmData()
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const [char, setChar] = useState({
     name: '',
@@ -51,6 +51,7 @@ export default function AddCharacter() {
         <form onSubmit={handleSubmit}>
           <label htmlFor="char-name">Name: </label>
           <input
+            required
             onChange={(e) => setChar({ ...char, name: e.target.value })}
             type="text"
             name="char-name"
@@ -78,6 +79,7 @@ export default function AddCharacter() {
 
           <label htmlFor="char-img">Image Link: </label>
           <input
+            required
             onChange={(e) => setChar({ ...char, image_url: e.target.value })}
             type="text"
             name="char-img"
@@ -85,10 +87,7 @@ export default function AddCharacter() {
             value={char.image_url}
             placeholder="Character Image Link"
           />
-          <button type="submit">
-            {/* // onClick={() => navigate('/characters')}> */}
-            Add Character
-          </button>
+          <button type="submit">Add Character</button>
         </form>
       </>
     )
