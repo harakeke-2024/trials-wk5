@@ -9,6 +9,14 @@ export default function RandomItems() {
   const [counter, setCounter] = useState(1)
   const [items, setItems] = useState<CategoryWithFilm[]>([])
 
+  const queryClient = useQueryClient()
+  const { data, isError, isLoading, error } = useCategoryItems()
+
+  if (isLoading) return <h1>Loading...</h1>
+
+  if (isError) return <h1>Error; {error.message}</h1>
+
+  // display selection functions
   function selectCategory() {
     if (counter % 3 === 0) {
       setCategory('places')
@@ -19,13 +27,6 @@ export default function RandomItems() {
     }
     setCounter((prevCounter) => prevCounter + 1)
   }
-
-  const queryClient = useQueryClient()
-  const { data, isError, isLoading, error } = useCategoryItems()
-
-  if (isLoading) return <h1>Loading...</h1>
-
-  if (isError) return <h1>Error; {error.message}</h1>
 
   function handleGetCategoryItem(
     dishesArr: CategoryWithFilm[],
@@ -64,6 +65,18 @@ export default function RandomItems() {
   ): void {
     handleGetCategoryItem(dishesArr, charsArr, placesArr)
   }
+
+  // game logic functions
+  // need to determine which img should display - this will become the correct answer
+  // startGame will possibly need to trigger this display
+  // OPTION 1:
+  // first item in the array is always the img displayed.
+  // However, the films are shuffled before they are displayed.
+  // STEPS to make OPTION 1 work:
+  // display img
+  // have a films array with two films (for any category)
+  // shuffle the array before displaying it - possibly right after receiving the data.
+  // display shuffledArr.
 
   if (data) {
     const { dishes, chars, places } = data
