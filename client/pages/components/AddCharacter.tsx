@@ -11,7 +11,7 @@ export default function AddCharacter() {
 
   const [char, setChar] = useState({
     name: '',
-    film_id: 0,
+    film_id: 1,
     image_url: '',
   })
 
@@ -21,7 +21,7 @@ export default function AddCharacter() {
       queryClient.invalidateQueries({ queryKey: ['characters'] })
       setChar({
         name: '',
-        film_id: 0,
+        film_id: 1,
         image_url: '',
       })
       navigate('/characters')
