@@ -70,6 +70,7 @@ export default function RandomItems() {
   // need to determine which img should display - this will become the correct answer
   // startGame will possibly need to trigger this display
   // OPTION 1:
+  // --the issue with this option is that the later films in the DB would never be the correct answer...
   // first item in the array is always the img displayed.
   // However, the films are shuffled before they are displayed.
   // STEPS to make OPTION 1 work:
@@ -77,6 +78,13 @@ export default function RandomItems() {
   // have a films array with two films (for any category)
   // shuffle the array before displaying it - possibly right after receiving the data.
   // display shuffledArr.
+  // OPTION 2:
+  // randomly arrange array BEFORE displaying anything
+  // films are always displayed in the order that they come in.
+  // an entire object is set to be the answer.
+  // this contains all the info - including film title and img string
+  // img is randomly chosen to be displayed using state.
+  // then, the string from the selected (by user) film is compared to this obj state.
 
   if (data) {
     const { dishes, chars, places } = data
