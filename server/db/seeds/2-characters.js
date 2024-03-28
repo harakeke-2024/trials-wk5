@@ -25,8 +25,7 @@ export async function seed(knex) {
       name: 'No Face',
       film_id: 4,
       description: 'under construction',
-      image_url:
-        'https://images.ciatr.jp/2020/10/w_640/mPEbw1nfhbapdjtsd0kULQ84HCCfXb2OwnuZ7jEu.jpeg',
+      image_url: 'https://www.ghibli.jp/gallery/chihiro041.jpg',
     },
     {
       id: 4,
@@ -91,8 +90,7 @@ export async function seed(knex) {
       name: 'Mei',
       film_id: 3,
       description: 'under construction',
-      image_url:
-        'https://i.pinimg.com/564x/56/9e/1f/569e1f617f987afbe8489e84ee64f412.jpg',
+      image_url: 'https://www.ghibli.jp/gallery/totoro023.jpg',
     },
     {
       id: 13,
