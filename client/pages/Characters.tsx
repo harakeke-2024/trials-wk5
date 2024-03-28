@@ -29,7 +29,7 @@ export default function Characters() {
         <Link to={'/add-character'}>Add Your Favourite Character</Link>
         <br />
         <ul>
-          {characters.map((char, index) => (
+          {characters.reverse().map((char, index) => (
             <li key={index}>
               <h2>{char.name}</h2>
               <img src={char.img} alt={`${char.name}`} />

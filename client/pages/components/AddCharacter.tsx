@@ -19,6 +19,7 @@ export default function AddCharacter() {
     mutationFn: addNewChar,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['characters'] })
+      alert(`${char.name} has been added`)
       setChar({
         name: '',
         film_id: 1,
