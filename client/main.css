@@ -7,10 +7,10 @@ html {
   color: rgb(5, 97, 102);
   margin: 0;
   padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 body {
-  overflow-x: hidden; /* Prevent horizontal scrolling */
   font-family: 'Single Day', cursive, Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -22,8 +22,9 @@ body {
   box-sizing: border-box;
 }
 
-img {
-  max-width: 40em;
+div img {
+  max-width: 100%;
+  object-fit: fill;
 }
 
 h1 {
@@ -40,22 +41,17 @@ p {
 header,
 footer,
 main {
-  width: 80%;
+  width: 92%;
   margin: 0 auto; /* Center align these elements */
 }
 
 /* header & nav styling */
 .head-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  overflow-x: hidden; /* Prevent horizontal scrolling *
   /* padding: 0.3em; */
-}
-
-header img {
-  width: 15em;
-  padding: 0.5em;
-  margin-left: 5em;
 }
 
 header h1 {
@@ -116,10 +112,5 @@ button {
   }
   img {
     max-width: 20em;
-  }
-  header,
-  main,
-  footer {
-    width: 80%;
   }
 }
