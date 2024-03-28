@@ -68,9 +68,6 @@ export default function AddCharacter() {
             onChange={handleFilmChange}
             value={char.film_id}
           >
-            <option value="" disabled selected>
-              Select a film
-            </option>
             {films.data?.map((film) => (
               <option key={film.id} value={film.id}>
                 {film.title}
